@@ -11745,7 +11745,7 @@ h1 {
   font-size: 60px;
   padding: 0px;
   margin: 0;
-  color: #FF9800;
+  color: #e2b3ad;
 }
 
 /* line 25, ../../../compass/sass/front/common/_common.scss */
@@ -11781,7 +11781,7 @@ img {
   text-align: center;
   color: #fff;
   line-height: 25px;
-  background: #FF9800;
+  background: #e2b3ad;
   border-radius: 50%;
   border: 3px solid #fff;
 }
@@ -11791,7 +11791,7 @@ img {
   text-align: center;
   font-size: 25px;
   padding: 10px;
-  background: #FF9800;
+  background: #e2b3ad;
   color: #fff;
 }
 /* line 70, ../../../compass/sass/front/common/_common.scss */
@@ -11812,7 +11812,7 @@ img {
 }
 /* line 86, ../../../compass/sass/front/common/_common.scss */
 .panel-object.btn-add:hover, .panel-object.btn-add:focus {
-  color: #FF9800;
+  color: #e2b3ad;
 }
 
 /* line 93, ../../../compass/sass/front/common/_common.scss */
@@ -11867,7 +11867,7 @@ body {
   position: absolute;
   top: 10px;
   left: -90px;
-  background: #FF9800;
+  background: #e2b3ad;
   color: #fff !important;
   border-radius: 50%;
   font-size: 25px;
@@ -11902,7 +11902,7 @@ body {
   height: 0;
   border-top: 20px solid transparent;
   border-bottom: 5px solid transparent;
-  border-left: 18px solid #FF9800;
+  border-left: 18px solid #e2b3ad;
 }
 
 /* line 174, ../../../compass/sass/front/common/_common.scss */
@@ -11943,7 +11943,7 @@ body {
   text-align: center;
   font-size: 25px;
   padding: 10px;
-  background: #FF9800;
+  background: #e2b3ad;
   color: #fff;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -11956,13 +11956,13 @@ body {
 
 /* line 215, ../../../compass/sass/front/common/_common.scss */
 .btn-primary {
-  background: #FF9800;
-  border-color: #FF9800;
+  background: #e2b3ad;
+  border-color: #e2b3ad;
 }
 /* line 219, ../../../compass/sass/front/common/_common.scss */
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background: #ffa21a !important;
-  border-color: #ffa21a !important;
+  background: #e9c4c0 !important;
+  border-color: #e9c4c0 !important;
 }
 
 /* line 227, ../../../compass/sass/front/common/_common.scss */
@@ -12077,7 +12077,7 @@ body {
 }
 /* line 330, ../../../compass/sass/front/common/_common.scss */
 .current-user a .fa {
-  color: #FF9800;
+  color: #e2b3ad;
 }
 
 /* line 336, ../../../compass/sass/front/common/_common.scss */
@@ -12132,7 +12132,12 @@ span.share-url {
   cursor: text;
 }
 
-/* line 8, ../../../compass/sass/front/birthday/front.scss */
+/* line 8, ../../../compass/sass/front/naissance/front.scss */
 body {
-  background: rgba(3, 169, 244, 0.25);
+  background: #d7f1f5;
+}
+
+/* line 12, ../../../compass/sass/front/naissance/front.scss */
+.img-head {
+  width: 200px;
 }

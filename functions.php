@@ -10,6 +10,7 @@
     $themes = array(
         'noel' => 'Noël',
         'birthday' => 'Anniversaire',
+        'naissance' => 'Naissance',
     );
 
     if (isset($_GET['user'])) {

@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="col-xs-12">
-                    <img src="img/<?php echo $currentTheme['label']; ?>/head.png" width="350px">
+                    <img class="img-head" src="img/<?php echo $currentTheme['label']; ?>/head.png" width="350px">
                 </div>
             </div>
         </div>

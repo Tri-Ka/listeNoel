@@ -1,11 +1,14 @@
 @import "compass";
 @import url(https://fonts.googleapis.com/css?family=Anton|Bangers|Architects+Daughter);
 
-$color-red: #FF9800;
+$color-red: #e2b3ad;
 
 @import '../common/common';
 
 body {
-    background: rgba(3, 169, 244, 0.25);
+    background: #d7f1f5;
 }
 
+.img-head {
+	width: 200px;
+}
