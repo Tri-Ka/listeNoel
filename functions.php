@@ -4,7 +4,7 @@
     $userId = null;
     $currentUser = null;
     $currentTheme = array(
-        'label' => 'default',
+        'label' => 'noel',
     );
 
     $themes = array(

@@ -17,9 +17,6 @@
             <meta property="og:title" content="Ma liste de Noël" />
         <?php endif; ?>
         <meta property="og:image" content="http://datcharrye.free.fr/listeNoel/img/metaOg.jpg" />
-
-        <link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="<?php echo auto_version('css/front/default/front.css'); ?>">
         <link rel="stylesheet" type="text/css" media="screen" href="<?php echo auto_version('css/front/'.$currentTheme['label'].'/front.css'); ?>">
     </head>
 
