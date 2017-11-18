@@ -35,7 +35,6 @@
 
         $result = mysql_insert('liste_user', array(
             'nom' => $nom,
-            'photo' => $photo,
             'code' => $code,
             'password' => trim(md5($password)),
             'theme' => 'noel',
@@ -49,7 +48,7 @@
         $target_dir = '../uploads/'.$user['id'].'/';
 
         if (!file_exists($target_dir)) {
-            mkdir($target_dir, 0777, true);
+            mkdir($target_dir, 0777);
         }
 
         $target_file = $target_dir.basename($_FILES['pictureFile']['name']);
