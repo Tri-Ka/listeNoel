@@ -85,7 +85,7 @@
                     </div>
 
                     <span class="share-url">
-                        http://datcharrye.free.fr/listeKDO/index.php?user=<?php echo $currentUser['code']; ?>
+                        http://datcharrye.free.fr/listeNoel/index.php?user=<?php echo $currentUser['code']; ?>
                     </span>
                 </div>
             </div>
