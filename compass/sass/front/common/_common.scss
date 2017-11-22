@@ -237,7 +237,7 @@ body {
     .btn-add-friend {
         position: absolute;
         font-size: 1em;
-        background: #607D8B;
+        background: #4a4a4a;
         color: #fff;
         width: 40px;
         height: 40px;
@@ -245,6 +245,14 @@ body {
         border-radius: 50%;
         bottom: 0;
         right: 0;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+        line-height: 38px;
+        border: 2px solid #fff;
+
+        &:hover,
+        &:focus {
+            background: #6f6f6f;
+        }
     }
 }
 
