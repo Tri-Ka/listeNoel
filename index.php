@@ -7,7 +7,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Liste de Noël</title>
+        <title><?php echo $currentTheme['title']; ?> <?php if (isset($currentUser)): ?> de <?php echo $currentUser['nom']; ?> <?php endif; ?></title>
         <link rel="icon" href="./favicon.ico" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Ma liste de Noel">
