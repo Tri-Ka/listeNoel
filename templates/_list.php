@@ -26,7 +26,11 @@
 
                     <div class="panel-detail">
                         <p>
-                            <?php echo nl2br(substr($object['description'], 0, 300)); ?> ...
+                            <?php echo nl2br(substr($object['description'], 0, 300)); ?>
+
+                            <?php if (300 < strlen($object['description'])): ?>
+                                [...]
+                            <?php endif; ?>
                         </p>
 
                         <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] !== $currentUser['id']): ?>
@@ -55,7 +59,7 @@
                     <?php if ('' !== $object['link']): ?>
                         <div class="prix">
                             <a target="_blank" href="<?php echo $object['link']; ?>" class="btn btn-lg btn-default btn-block">
-                                <span class="hidden-xs">C'est trop bien ! </span> Où j'trouve ca ?
+                                <span class="hidden-xs">C'est trop bien ! </span> Où je trouve ca ?
                             </a>
                         </div>
                     <?php endif; ?>

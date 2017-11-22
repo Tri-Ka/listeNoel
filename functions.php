@@ -5,6 +5,7 @@
     $currentUser = null;
     $currentTheme = array(
         'label' => 'noel',
+        'title' => 'Liste de Noël',
     );
 
     $themes = array(
@@ -24,6 +25,24 @@
     if (retrieveUser($userId)) {
         $currentUser = retrieveUser($userId);
         $currentTheme['label'] = $currentUser['theme'];
+
+        switch ($currentUser['theme']) {
+            case 'noel':
+                $currentTheme['title'] = 'Liste de Noël';
+                break;
+
+            case 'birthday':
+                $currentTheme['title'] = 'Liste d\'anniversaire';
+                break;
+
+            case 'naissance':
+                $currentTheme['title'] = 'Liste de naissance';
+                break;
+
+            default:
+                # code...
+                break;
+        }
     }
 
     if ($currentUser) {
