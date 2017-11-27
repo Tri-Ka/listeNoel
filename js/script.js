@@ -28,3 +28,10 @@ $('[data-more-info]').on('click', function(e){
     e.preventDefault();
     e.stopPropagation();
 });
+
+$('[data-error-close]').on('click', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+
+    $('.error').remove();
+});

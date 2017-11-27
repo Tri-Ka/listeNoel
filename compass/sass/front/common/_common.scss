@@ -295,7 +295,7 @@ body {
 
 .error {
     padding: 30px;
-    background: rgba(244, 67, 54, 0.7);
+    background: #F44336;
     color: #fff;
     position: fixed;
     display: inline-block;
@@ -303,9 +303,17 @@ body {
     left: 0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    z-index: 100;
 
     p {
         margin: 0;
+    }
+
+    .close {
+        position: absolute;
+        top: 7px;
+        right: 15px;
+        font-family: Bangers;
     }
 }
 

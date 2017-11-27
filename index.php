@@ -23,6 +23,7 @@
     <body class="">
         <?php if (isset($_SESSION['error']) && null !== $_SESSION['error']): ?>
             <div class="error">
+                <a href="#" class="error-close close" data-error-close><span aria-hidden="true">&times;</span></a>
                 <p><i class="fa fa-warning"></i> <?php echo $_SESSION['error']; ?></p>
             </div>
 

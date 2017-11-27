@@ -12,6 +12,15 @@
         exit;
     }
 
+    $fileSize = $_FILES['pictureFile']['size'];
+    $fileSize = round($fileSize / 1024 / 1024, 1);
+
+    if (3 < $fileSize) {
+        $_SESSION['error'] = 'L\'image ne doit pas dépasser 3Mo';
+        header('Location: ../index.php');
+        exit;
+    }
+
     if ($password !== $rePassword) {
         $_SESSION['error'] = 'les mots de passes sont différents';
         header('Location: ../index.php');

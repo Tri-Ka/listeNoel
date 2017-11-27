@@ -12040,7 +12040,7 @@ body {
 /* line 296, ../../../compass/sass/front/common/_common.scss */
 .error {
   padding: 30px;
-  background: rgba(244, 67, 54, 0.7);
+  background: #F44336;
   color: #fff;
   position: fixed;
   display: inline-block;
@@ -12048,13 +12048,21 @@ body {
   left: 0;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  z-index: 100;
 }
-/* line 307, ../../../compass/sass/front/common/_common.scss */
+/* line 308, ../../../compass/sass/front/common/_common.scss */
 .error p {
   margin: 0;
 }
-
 /* line 312, ../../../compass/sass/front/common/_common.scss */
+.error .close {
+  position: absolute;
+  top: 7px;
+  right: 15px;
+  font-family: Bangers;
+}
+
+/* line 320, ../../../compass/sass/front/common/_common.scss */
 .current-user {
   position: absolute;
   top: 60px;
@@ -12068,7 +12076,7 @@ body {
   overflow: auto;
   line-height: 30px;
 }
-/* line 325, ../../../compass/sass/front/common/_common.scss */
+/* line 333, ../../../compass/sass/front/common/_common.scss */
 .current-user .current-avatar {
   width: 30px;
   height: 30px;
@@ -12077,17 +12085,17 @@ body {
   display: inline-block;
   float: left;
 }
-/* line 334, ../../../compass/sass/front/common/_common.scss */
+/* line 342, ../../../compass/sass/front/common/_common.scss */
 .current-user a {
   margin-left: 10px;
   color: #000;
 }
-/* line 338, ../../../compass/sass/front/common/_common.scss */
+/* line 346, ../../../compass/sass/front/common/_common.scss */
 .current-user a .fa {
   color: #E23030;
 }
 
-/* line 344, ../../../compass/sass/front/common/_common.scss */
+/* line 352, ../../../compass/sass/front/common/_common.scss */
 .current-user-friends {
   position: absolute;
   top: 110px;
@@ -12101,15 +12109,15 @@ body {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.13);
   z-index: 10;
 }
-/* line 357, ../../../compass/sass/front/common/_common.scss */
+/* line 365, ../../../compass/sass/front/common/_common.scss */
 .current-user-friends li {
   list-style: none;
 }
-/* line 360, ../../../compass/sass/front/common/_common.scss */
+/* line 368, ../../../compass/sass/front/common/_common.scss */
 .current-user-friends li:last-child {
   margin-bottom: -4px;
 }
-/* line 364, ../../../compass/sass/front/common/_common.scss */
+/* line 372, ../../../compass/sass/front/common/_common.scss */
 .current-user-friends li .friend-img {
   width: 30px;
   height: 30px;
@@ -12118,17 +12126,17 @@ body {
   display: inline-block;
 }
 
-/* line 374, ../../../compass/sass/front/common/_common.scss */
+/* line 382, ../../../compass/sass/front/common/_common.scss */
 .marged-top {
   margin-top: 15px;
 }
 
-/* line 378, ../../../compass/sass/front/common/_common.scss */
+/* line 386, ../../../compass/sass/front/common/_common.scss */
 img {
   max-width: 100%;
 }
 
-/* line 382, ../../../compass/sass/front/common/_common.scss */
+/* line 390, ../../../compass/sass/front/common/_common.scss */
 span.share-url {
   display: inline-block;
   margin-bottom: 30px;

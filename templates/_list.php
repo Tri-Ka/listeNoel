@@ -69,7 +69,7 @@
 
         <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] === $currentUser['id']): ?>
             <div class="col-xs-12 col-sm-6 col-md-4 grid-item">
-                <a class="panel panel-default panel-object btn-add" href="#" data-toggle="modal" data-target="#myModal">
+                <a class="panel panel-default panel-object btn-add" href="#" data-toggle="modal" data-target="#myModal" data-toggle2="tooltip" data-original-title="ajouter une envie">
                     <i class="fa fa-gift"></i>
                 </a>
             </div>
