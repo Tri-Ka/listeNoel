@@ -52,9 +52,14 @@ img {
         text-align: center;
         color: #fff;
         line-height: 25px;
-        background: $color-red;
+        background: #4a4a4a;
         border-radius: 50%;
         border: 3px solid #fff;
+
+        &:hover,
+        &:focus {
+            background: #6f6f6f;
+        }
     }
 
 	.nom {

@@ -12,7 +12,7 @@
                     <?php endif; ?>
 
                     <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] === $currentUser['id']): ?>
-                        <a href="#" class="btn-add-friend" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></a>
+                        <a href="#" class="btn-add-friend" data-toggle="modal" data-target="#editModal"><i class="fa fa-pencil"></i></a>
                     <?php endif; ?>
                 </div>
 
