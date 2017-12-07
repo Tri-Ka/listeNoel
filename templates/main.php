@@ -23,5 +23,13 @@
         <?php include '_bottom.php'; ?>
     </div>
 
+    <?php if ($currentUser): ?>
+        <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] === $currentUser['id']): ?>
+            <?php foreach ($objects as $object): ?>
+                <?php include 'modalEditObject.php'; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    <?php endif; ?>
+
     <?php include '_rightPanel.php'; ?>
 </div>

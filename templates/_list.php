@@ -9,8 +9,8 @@
                     <?php endif; ?>
                 ">
                     <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] === $currentUser['id']): ?>
-                        <a class="delete-obj" href="actions/deleteObject.php?id=<?php echo $object['id']; ?>" data-confirm="Êtes-vous sûr de vouloir supprimer cette belle idée ?">
-                            <i class="fa fa-times"></i>
+                        <a href="#" class="delete-obj edit-obj" data-toggle="modal" data-target="#modal-edit-object-<?php echo $object['id']; ?>" data-toggle2="tooltip" data-original-title="ajouter une envie">
+                            <i class="fa fa-pencil"></i>
                         </a>
                     <?php endif; ?>
 
