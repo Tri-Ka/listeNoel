@@ -179,6 +179,7 @@ body {
 .panel-detail {
     padding: 15px;
     font-size: 13px;
+    position: relative;
 }
 
 .comment .fa-comments-o {
@@ -270,12 +271,20 @@ body {
         margin-bottom: 10px;
     }
 
-    .fb_iframe_widget_fluid {
-        display: none !important;
-    }
-
     .right-panel .fb_iframe_widget_fluid {
         display: inline !important;
+    }
+
+    .modal-object {
+        .btn {
+            display: block;
+            margin: 0 !important;
+            margin-bottom: 10px !important;
+        }
+    }
+
+    .info-comment {
+        transform: scale(.8);
     }
 }
 
@@ -400,4 +409,53 @@ span.share-url {
     border-radius: 5px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.33) inset;
     cursor: text;
+}
+
+.img-container {
+    img {
+        width: 100%;
+    }
+}
+
+textarea {
+    width: 100%;
+}
+
+.fb-comments-object {
+    position: relative !important;
+    width: 100% !important;
+    left: 0;
+    right: 0;
+    bottom: initial;
+    top: initial;
+    overflow: initial;
+}
+
+.modal-object {
+    p {
+        padding: 10px;
+        background: #efefef;
+        line-height: 25px;
+        border: 1px solid #ddd;
+    }
+
+    img {
+        border: 5px solid #fff;
+        box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.fb_iframe_widget span,
+.fb_iframe_widget span iframe {
+    width: 100% !important;
+}
+
+.info-comment {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+
+    i {
+        font-size: 20px;
+    }
 }

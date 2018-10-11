@@ -14,22 +14,22 @@
 
                             <div class="form-group">
                                 <label for="nom">Nom *</label>
-                                <input type="text" class="form-control" id="nom" name="nom" placeholder="nom" required="required">
+                                <input type="text" class="form-control" name="nom" placeholder="nom" required="required">
                             </div>
 
                             <div class="form-group">
                                 <label for="description">Description *</label>
-                                <textarea class="form-control" id="description" name="description" placeholder="Description" required="required"></textarea>
+                                <textarea class="form-control" name="description" placeholder="Description" required="required"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="image">Lien vers l'image</label>
-                                <input type="text" class="form-control" id="image" name="image" placeholder="Lien vers l'image (optionnel)">
+                                <input type="text" class="form-control" name="image" placeholder="Lien vers l'image (optionnel)">
                             </div>
 
                             <div class="form-group">
                                 <label for="link">Lien vers l'objet</label>
-                                <input type="text" class="form-control" id="link" name="link" placeholder="Lien vers l'objet (optionnel)">
+                                <input type="text" class="form-control" name="link" placeholder="Lien vers l'objet (optionnel)">
                             </div>
 
                             <p>* champs obligatoires</p>

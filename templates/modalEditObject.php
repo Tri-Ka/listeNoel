@@ -15,24 +15,24 @@
 
                             <div class="form-group">
                                 <label for="nom">Nom *</label>
-                                <input type="text" class="form-control" id="nom" name="nom" placeholder="nom" required="required" value="<?php echo $object['nom']; ?>">
+                                <input type="text" class="form-control" name="nom" placeholder="nom" required="required" value="<?php echo $object['nom']; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="description">Description *</label>
-                                <textarea class="form-control" id="description" name="description" placeholder="Description" required="required">
-                                    <?php echo $object['description']; ?>
+                                <textarea class="form-control" name="description" placeholder="Description" required="required">
+                                    <?php echo trim($object['description']); ?>
                                 </textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="image">Lien vers l'image</label>
-                                <input type="text" class="form-control" id="image" name="image" placeholder="Lien vers l'image (optionnel)" value="<?php echo $object['image_url']; ?>">
+                                <input type="text" class="form-control" name="image" placeholder="Lien vers l'image (optionnel)" value="<?php echo $object['image_url']; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="link">Lien vers l'objet</label>
-                                <input type="text" class="form-control" id="link" name="link" placeholder="Lien vers l'objet (optionnel)" value="<?php echo $object['link']; ?>">
+                                <input type="text" class="form-control" name="link" placeholder="Lien vers l'objet (optionnel)" value="<?php echo $object['link']; ?>">
                             </div>
 
                             <p>* champs obligatoires</p>
