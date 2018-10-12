@@ -9,7 +9,7 @@
                     <?php endif; ?>
                 ">
                     <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] === $currentUser['id']) : ?>
-                        <a href="#" class="delete-obj edit-obj" data-toggle="modal" data-target="#modal-edit-object-<?php echo $object['id']; ?>" data-toggle2="tooltip" data-original-title="ajouter une envie">
+                        <a href="#" class="delete-obj edit-obj" data-toggle="modal" data-target="#modal-edit-object-<?php echo $object['id']; ?>" data-toggle2="tooltip" data-original-title="Modifier">
                             <i class="fa fa-pencil"></i>
                         </a>
                     <?php endif; ?>
@@ -69,7 +69,7 @@
 
         <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] === $currentUser['id']) : ?>
             <div class="col-xs-12 col-sm-6 col-md-4 grid-item">
-                <a class="panel panel-default panel-object btn-add" href="#" data-toggle="modal" data-target="#myModal" data-toggle2="tooltip" data-original-title="ajouter une envie">
+                <a class="panel panel-default panel-object btn-add" href="#" data-toggle="modal" data-target="#myModal" data-toggle2="tooltip" data-original-title="ajouter une idée Kdo">
                     <i class="fa fa-gift"></i>
                 </a>
             </div>
@@ -127,7 +127,7 @@
                         <?php endif; ?>
 
                         <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] === $currentUser['id']) : ?>
-                            <a href="#" class="delete-obj edit-obj btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modal-edit-object-<?php echo $object['id']; ?>" data-toggle2="tooltip" data-original-title="ajouter une envie">
+                            <a href="#" class="delete-obj edit-obj btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modal-edit-object-<?php echo $object['id']; ?>" data-toggle2="tooltip" data-original-title="Modifier">
                                 <i class="fa fa-pencil"></i> Modifier
                             </a>
                         <?php endif; ?>

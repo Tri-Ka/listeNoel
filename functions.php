@@ -58,7 +58,7 @@
         $objects = array();
 
         foreach ($dbobjects as $object) {
-            $object['description'] = str_replace('\"', '"', str_replace("\'", "'", $object['description']));
+            $object['description'] = trim(str_replace('\"', '"', str_replace("\'", "'", $object['description'])));
             $object['nom'] = str_replace('\"', '"', str_replace("\'", "'", $object['nom']));
             $objects[] = $object;
         }

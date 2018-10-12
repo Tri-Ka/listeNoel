@@ -12144,11 +12144,16 @@ body {
 }
 
 /* line 400, ../../../compass/sass/front/common/_common.scss */
+.marged-bottom {
+  margin-bottom: 15px;
+}
+
+/* line 404, ../../../compass/sass/front/common/_common.scss */
 img {
   max-width: 100%;
 }
 
-/* line 404, ../../../compass/sass/front/common/_common.scss */
+/* line 408, ../../../compass/sass/front/common/_common.scss */
 span.share-url {
   display: inline-block;
   margin-bottom: 30px;
@@ -12159,17 +12164,17 @@ span.share-url {
   cursor: text;
 }
 
-/* line 415, ../../../compass/sass/front/common/_common.scss */
+/* line 419, ../../../compass/sass/front/common/_common.scss */
 .img-container img {
   width: 100%;
 }
 
-/* line 420, ../../../compass/sass/front/common/_common.scss */
+/* line 424, ../../../compass/sass/front/common/_common.scss */
 textarea {
-  width: 100%;
+  width: 100% !important;
 }
 
-/* line 424, ../../../compass/sass/front/common/_common.scss */
+/* line 428, ../../../compass/sass/front/common/_common.scss */
 .fb-comments-object {
   position: relative !important;
   width: 100% !important;
@@ -12180,32 +12185,32 @@ textarea {
   overflow: initial;
 }
 
-/* line 435, ../../../compass/sass/front/common/_common.scss */
+/* line 439, ../../../compass/sass/front/common/_common.scss */
 .modal-object p {
   padding: 10px;
   background: #efefef;
   line-height: 25px;
   border: 1px solid #ddd;
 }
-/* line 442, ../../../compass/sass/front/common/_common.scss */
+/* line 446, ../../../compass/sass/front/common/_common.scss */
 .modal-object img {
   border: 5px solid #fff;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* line 448, ../../../compass/sass/front/common/_common.scss */
+/* line 452, ../../../compass/sass/front/common/_common.scss */
 .fb_iframe_widget span,
 .fb_iframe_widget span iframe {
   width: 100% !important;
 }
 
-/* line 453, ../../../compass/sass/front/common/_common.scss */
+/* line 457, ../../../compass/sass/front/common/_common.scss */
 .info-comment {
   position: absolute;
   bottom: 20px;
   left: 10px;
 }
-/* line 458, ../../../compass/sass/front/common/_common.scss */
+/* line 462, ../../../compass/sass/front/common/_common.scss */
 .info-comment i {
   font-size: 20px;
 }

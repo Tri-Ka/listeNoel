@@ -397,6 +397,10 @@ body {
     margin-top: 15px;
 }
 
+.marged-bottom {
+    margin-bottom: 15px;
+}
+
 img {
     max-width: 100%;
 }
@@ -418,7 +422,7 @@ span.share-url {
 }
 
 textarea {
-    width: 100%;
+    width: 100% !important;
 }
 
 .fb-comments-object {

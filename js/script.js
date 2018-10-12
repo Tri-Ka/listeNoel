@@ -1,5 +1,6 @@
 $('[data-toggle="popover"]').popover();
 $('[data-toggle="tooltip"]').tooltip();
+$('[data-toggle2="tooltip"]').tooltip();
 
 $('[data-confirm]').on('click', function(e){
 
