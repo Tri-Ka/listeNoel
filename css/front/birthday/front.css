@@ -11745,7 +11745,7 @@ h1 {
   font-size: 60px;
   padding: 0px;
   margin: 0;
-  color: #FF9800;
+  color: #2196F3;
 }
 
 /* line 25, ../../../compass/sass/front/common/_common.scss */
@@ -11757,25 +11757,26 @@ img {
 .panel-object {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
-  overflow: hidden;
   display: block;
   margin-bottom: 30px;
   border: 3px solid #fff;
+  transition: all .3s;
+  position: relative;
 }
-/* line 37, ../../../compass/sass/front/common/_common.scss */
+/* line 38, ../../../compass/sass/front/common/_common.scss */
 .panel-object.gifted {
   opacity: 0.5;
   transition: opacity .3s;
 }
-/* line 41, ../../../compass/sass/front/common/_common.scss */
+/* line 42, ../../../compass/sass/front/common/_common.scss */
 .panel-object.gifted:hover {
   opacity: 1;
 }
-/* line 46, ../../../compass/sass/front/common/_common.scss */
+/* line 47, ../../../compass/sass/front/common/_common.scss */
 .panel-object .delete-obj {
   position: absolute;
   top: -15px;
-  right: 0;
+  right: -15px;
   width: 30px;
   height: 30px;
   text-align: center;
@@ -11785,25 +11786,25 @@ img {
   border-radius: 50%;
   border: 3px solid #fff;
 }
-/* line 59, ../../../compass/sass/front/common/_common.scss */
+/* line 60, ../../../compass/sass/front/common/_common.scss */
 .panel-object .delete-obj:hover, .panel-object .delete-obj:focus {
   background: #6f6f6f;
 }
-/* line 65, ../../../compass/sass/front/common/_common.scss */
+/* line 66, ../../../compass/sass/front/common/_common.scss */
 .panel-object .nom {
   font-family: 'Bangers', cursive;
   text-align: center;
   font-size: 25px;
   padding: 10px;
-  background: #FF9800;
+  background: #2196F3;
   color: #fff;
 }
-/* line 75, ../../../compass/sass/front/common/_common.scss */
+/* line 76, ../../../compass/sass/front/common/_common.scss */
 .panel-object .prix .btn {
   border-radius: 0;
   border: none;
 }
-/* line 81, ../../../compass/sass/front/common/_common.scss */
+/* line 82, ../../../compass/sass/front/common/_common.scss */
 .panel-object.btn-add {
   box-shadow: none;
   border: 2px dashed #bcbcbc;
@@ -11814,22 +11815,22 @@ img {
   min-height: 400px;
   background: rgba(255, 255, 255, 0.35);
 }
-/* line 91, ../../../compass/sass/front/common/_common.scss */
+/* line 92, ../../../compass/sass/front/common/_common.scss */
 .panel-object.btn-add:hover, .panel-object.btn-add:focus {
-  color: #FF9800;
+  color: #2196F3;
 }
 
-/* line 98, ../../../compass/sass/front/common/_common.scss */
+/* line 99, ../../../compass/sass/front/common/_common.scss */
 .popover {
   min-width: 300px;
 }
 
-/* line 102, ../../../compass/sass/front/common/_common.scss */
+/* line 103, ../../../compass/sass/front/common/_common.scss */
 body {
   background-image: url('../../../img/bg-noise.png?1512384625');
 }
 
-/* line 106, ../../../compass/sass/front/common/_common.scss */
+/* line 107, ../../../compass/sass/front/common/_common.scss */
 .right-panel {
   position: fixed;
   top: 0;
@@ -11844,12 +11845,12 @@ body {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* line 120, ../../../compass/sass/front/common/_common.scss */
+/* line 121, ../../../compass/sass/front/common/_common.scss */
 .right-panel.opened {
   margin-right: 0;
 }
 
-/* line 124, ../../../compass/sass/front/common/_common.scss */
+/* line 125, ../../../compass/sass/front/common/_common.scss */
 .fb-comments {
   position: absolute !important;
   top: 0px;
@@ -11859,19 +11860,19 @@ body {
   overflow: auto;
 }
 @media screen and (max-width: 767px) {
-  /* line 124, ../../../compass/sass/front/common/_common.scss */
+  /* line 125, ../../../compass/sass/front/common/_common.scss */
   .fb-comments {
     right: 10px;
     top: 45px;
   }
 }
 
-/* line 138, ../../../compass/sass/front/common/_common.scss */
+/* line 139, ../../../compass/sass/front/common/_common.scss */
 .comment {
   position: absolute;
   top: 10px;
   left: -90px;
-  background: #FF9800;
+  background: #2196F3;
   color: #fff !important;
   border-radius: 50%;
   font-size: 25px;
@@ -11881,7 +11882,7 @@ body {
   text-align: center;
   text-decoration: none !important;
 }
-/* line 152, ../../../compass/sass/front/common/_common.scss */
+/* line 153, ../../../compass/sass/front/common/_common.scss */
 .comment .fb-comments-count {
   position: absolute;
   border-radius: 20px;
@@ -11896,7 +11897,7 @@ body {
   font-size: 10px;
 }
 
-/* line 167, ../../../compass/sass/front/common/_common.scss */
+/* line 168, ../../../compass/sass/front/common/_common.scss */
 .comment::before {
   content: ' ';
   position: absolute;
@@ -11906,71 +11907,73 @@ body {
   height: 0;
   border-top: 20px solid transparent;
   border-bottom: 5px solid transparent;
-  border-left: 18px solid #FF9800;
+  border-left: 18px solid #2196F3;
 }
 
-/* line 179, ../../../compass/sass/front/common/_common.scss */
+/* line 180, ../../../compass/sass/front/common/_common.scss */
 .panel-detail {
   padding: 15px;
   font-size: 13px;
   position: relative;
+  line-height: 21px;
 }
 
-/* line 185, ../../../compass/sass/front/common/_common.scss */
+/* line 187, ../../../compass/sass/front/common/_common.scss */
 .comment .fa-comments-o {
   display: inline;
 }
 
-/* line 189, ../../../compass/sass/front/common/_common.scss */
+/* line 191, ../../../compass/sass/front/common/_common.scss */
 .comment .fa-times {
   display: none;
 }
 
-/* line 193, ../../../compass/sass/front/common/_common.scss */
+/* line 195, ../../../compass/sass/front/common/_common.scss */
 .opened .comment .fa-comments-o {
   display: none;
 }
 
-/* line 197, ../../../compass/sass/front/common/_common.scss */
+/* line 199, ../../../compass/sass/front/common/_common.scss */
 .opened .comment .fa-times {
   display: inline;
 }
 
-/* line 201, ../../../compass/sass/front/common/_common.scss */
+/* line 203, ../../../compass/sass/front/common/_common.scss */
 .btn-default {
   background: #efefef;
   border-radius: 4px;
+  border-color: #efefef;
 }
 
-/* line 206, ../../../compass/sass/front/common/_common.scss */
+/* line 209, ../../../compass/sass/front/common/_common.scss */
 .modal-header {
   font-family: 'Bangers', cursive;
   text-align: center;
   font-size: 25px;
-  padding: 10px;
-  background: #FF9800;
+  padding: 10px 45px;
+  background: #2196F3;
   color: #fff;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
-/* line 217, ../../../compass/sass/front/common/_common.scss */
+/* line 220, ../../../compass/sass/front/common/_common.scss */
 .modal-content {
   border: 3px solid #fff;
 }
 
-/* line 221, ../../../compass/sass/front/common/_common.scss */
+/* line 224, ../../../compass/sass/front/common/_common.scss */
 .btn-primary {
-  background: #FF9800;
-  border-color: #FF9800;
+  background: #2196F3;
+  border-color: #2196F3;
 }
-/* line 225, ../../../compass/sass/front/common/_common.scss */
+/* line 228, ../../../compass/sass/front/common/_common.scss */
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background: #ffa21a !important;
-  border-color: #ffa21a !important;
+  background: #39a1f4 !important;
+  border-color: #39a1f4 !important;
 }
 
-/* line 233, ../../../compass/sass/front/common/_common.scss */
+/* line 236, ../../../compass/sass/front/common/_common.scss */
 .avatar {
   width: 150px;
   height: 150px;
@@ -11981,7 +11984,7 @@ body {
   border: 3px solid #fff;
   position: relative;
 }
-/* line 243, ../../../compass/sass/front/common/_common.scss */
+/* line 246, ../../../compass/sass/front/common/_common.scss */
 .avatar .btn-add-friend {
   position: absolute;
   font-size: 1em;
@@ -11997,59 +12000,31 @@ body {
   line-height: 38px;
   border: 2px solid #fff;
 }
-/* line 258, ../../../compass/sass/front/common/_common.scss */
+/* line 261, ../../../compass/sass/front/common/_common.scss */
 .avatar .btn-add-friend:hover, .avatar .btn-add-friend:focus {
   background: #6f6f6f;
 }
 
-@media screen and (max-width: 767px) {
-  /* line 266, ../../../compass/sass/front/common/_common.scss */
-  .full-xs {
-    width: 100%;
-  }
-
-  /* line 270, ../../../compass/sass/front/common/_common.scss */
-  .no-log {
-    margin-bottom: 10px;
-  }
-
-  /* line 274, ../../../compass/sass/front/common/_common.scss */
-  .right-panel .fb_iframe_widget_fluid {
-    display: inline !important;
-  }
-
-  /* line 279, ../../../compass/sass/front/common/_common.scss */
-  .modal-object .btn {
-    display: block;
-    margin: 0 !important;
-    margin-bottom: 10px !important;
-  }
-
-  /* line 286, ../../../compass/sass/front/common/_common.scss */
-  .info-comment {
-    transform: scale(0.8);
-  }
-}
-/* line 291, ../../../compass/sass/front/common/_common.scss */
+/* line 268, ../../../compass/sass/front/common/_common.scss */
 .name {
   font-family: 'Bangers', cursive;
   text-align: center;
   font-size: 25px;
 }
 
-/* line 298, ../../../compass/sass/front/common/_common.scss */
+/* line 275, ../../../compass/sass/front/common/_common.scss */
 .share-btns a {
   display: inline-block;
   border-radius: 4px;
   overflow: hidden;
   margin: 0 3px;
 }
-/* line 304, ../../../compass/sass/front/common/_common.scss */
+/* line 281, ../../../compass/sass/front/common/_common.scss */
 .share-btns a span {
   padding: 3px;
 }
 
-/* line 310, ../../../compass/sass/front/common/_common.scss */
+/* line 287, ../../../compass/sass/front/common/_common.scss */
 .error {
   padding: 30px;
   background: #F44336;
@@ -12062,11 +12037,11 @@ body {
   border-bottom-right-radius: 5px;
   z-index: 100;
 }
-/* line 322, ../../../compass/sass/front/common/_common.scss */
+/* line 299, ../../../compass/sass/front/common/_common.scss */
 .error p {
   margin: 0;
 }
-/* line 326, ../../../compass/sass/front/common/_common.scss */
+/* line 303, ../../../compass/sass/front/common/_common.scss */
 .error .close {
   position: absolute;
   top: 7px;
@@ -12074,7 +12049,7 @@ body {
   font-family: Bangers;
 }
 
-/* line 334, ../../../compass/sass/front/common/_common.scss */
+/* line 311, ../../../compass/sass/front/common/_common.scss */
 .current-user {
   position: absolute;
   top: 60px;
@@ -12088,7 +12063,7 @@ body {
   overflow: auto;
   line-height: 30px;
 }
-/* line 347, ../../../compass/sass/front/common/_common.scss */
+/* line 324, ../../../compass/sass/front/common/_common.scss */
 .current-user .current-avatar {
   width: 30px;
   height: 30px;
@@ -12097,17 +12072,17 @@ body {
   display: inline-block;
   float: left;
 }
-/* line 356, ../../../compass/sass/front/common/_common.scss */
+/* line 333, ../../../compass/sass/front/common/_common.scss */
 .current-user a {
   margin-left: 10px;
   color: #000;
 }
-/* line 360, ../../../compass/sass/front/common/_common.scss */
+/* line 337, ../../../compass/sass/front/common/_common.scss */
 .current-user a .fa {
-  color: #FF9800;
+  color: #2196F3;
 }
 
-/* line 366, ../../../compass/sass/front/common/_common.scss */
+/* line 343, ../../../compass/sass/front/common/_common.scss */
 .current-user-friends {
   position: absolute;
   top: 110px;
@@ -12121,15 +12096,15 @@ body {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.13);
   z-index: 10;
 }
-/* line 379, ../../../compass/sass/front/common/_common.scss */
+/* line 356, ../../../compass/sass/front/common/_common.scss */
 .current-user-friends li {
   list-style: none;
 }
-/* line 382, ../../../compass/sass/front/common/_common.scss */
+/* line 359, ../../../compass/sass/front/common/_common.scss */
 .current-user-friends li:last-child {
   margin-bottom: -4px;
 }
-/* line 386, ../../../compass/sass/front/common/_common.scss */
+/* line 363, ../../../compass/sass/front/common/_common.scss */
 .current-user-friends li .friend-img {
   width: 30px;
   height: 30px;
@@ -12138,22 +12113,22 @@ body {
   display: inline-block;
 }
 
-/* line 396, ../../../compass/sass/front/common/_common.scss */
+/* line 373, ../../../compass/sass/front/common/_common.scss */
 .marged-top {
   margin-top: 15px;
 }
 
-/* line 400, ../../../compass/sass/front/common/_common.scss */
+/* line 377, ../../../compass/sass/front/common/_common.scss */
 .marged-bottom {
   margin-bottom: 15px;
 }
 
-/* line 404, ../../../compass/sass/front/common/_common.scss */
+/* line 381, ../../../compass/sass/front/common/_common.scss */
 img {
   max-width: 100%;
 }
 
-/* line 408, ../../../compass/sass/front/common/_common.scss */
+/* line 385, ../../../compass/sass/front/common/_common.scss */
 span.share-url {
   display: inline-block;
   margin-bottom: 30px;
@@ -12164,17 +12139,17 @@ span.share-url {
   cursor: text;
 }
 
-/* line 419, ../../../compass/sass/front/common/_common.scss */
+/* line 396, ../../../compass/sass/front/common/_common.scss */
 .img-container img {
   width: 100%;
 }
 
-/* line 424, ../../../compass/sass/front/common/_common.scss */
+/* line 401, ../../../compass/sass/front/common/_common.scss */
 textarea {
   width: 100% !important;
 }
 
-/* line 428, ../../../compass/sass/front/common/_common.scss */
+/* line 405, ../../../compass/sass/front/common/_common.scss */
 .fb-comments-object {
   position: relative !important;
   width: 100% !important;
@@ -12185,37 +12160,99 @@ textarea {
   overflow: initial;
 }
 
-/* line 439, ../../../compass/sass/front/common/_common.scss */
+/* line 416, ../../../compass/sass/front/common/_common.scss */
 .modal-object p {
-  padding: 10px;
+  padding: 20px;
   background: #efefef;
   line-height: 25px;
   border: 1px solid #ddd;
 }
-/* line 446, ../../../compass/sass/front/common/_common.scss */
+/* line 423, ../../../compass/sass/front/common/_common.scss */
 .modal-object img {
   border: 5px solid #fff;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* line 452, ../../../compass/sass/front/common/_common.scss */
+/* line 429, ../../../compass/sass/front/common/_common.scss */
 .fb_iframe_widget span,
 .fb_iframe_widget span iframe {
   width: 100% !important;
 }
 
-/* line 457, ../../../compass/sass/front/common/_common.scss */
+/* line 434, ../../../compass/sass/front/common/_common.scss */
 .info-comment {
   position: absolute;
   bottom: 20px;
   left: 10px;
 }
-/* line 462, ../../../compass/sass/front/common/_common.scss */
+/* line 439, ../../../compass/sass/front/common/_common.scss */
 .info-comment i {
   font-size: 20px;
 }
 
+/* line 444, ../../../compass/sass/front/common/_common.scss */
+.btn-danger {
+  color: #fff;
+  background-color: #F44336;
+  border-color: #F44336;
+}
+
+/* line 450, ../../../compass/sass/front/common/_common.scss */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+@media screen and (min-width: 767px) {
+  /* line 457, ../../../compass/sass/front/common/_common.scss */
+  .link-img-input {
+    width: 45%;
+    float: left;
+  }
+
+  /* line 462, ../../../compass/sass/front/common/_common.scss */
+  .link-file-input {
+    width: 45%;
+    float: right;
+  }
+
+  /* line 467, ../../../compass/sass/front/common/_common.scss */
+  .or-div {
+    float: left;
+    width: 10%;
+    margin-top: 30px;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* line 475, ../../../compass/sass/front/common/_common.scss */
+  .full-xs {
+    width: 100%;
+  }
+
+  /* line 479, ../../../compass/sass/front/common/_common.scss */
+  .no-log {
+    margin-bottom: 10px;
+  }
+
+  /* line 483, ../../../compass/sass/front/common/_common.scss */
+  .right-panel .fb_iframe_widget_fluid {
+    display: inline !important;
+  }
+
+  /* line 488, ../../../compass/sass/front/common/_common.scss */
+  .modal-object .btn {
+    display: block;
+    margin: 0 !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* line 495, ../../../compass/sass/front/common/_common.scss */
+  .info-comment {
+    transform: scale(0.8);
+  }
+}
 /* line 8, ../../../compass/sass/front/birthday/front.scss */
 body {
-  background: rgba(3, 169, 244, 0.25);
+  background: #FFD54F;
 }

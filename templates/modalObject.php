@@ -1,9 +1,9 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
-        <form action="actions/addObject.php" method="post">
+        <form action="actions/addObject.php" method="post" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
                     <h3 class="modal-title" id="myModalLabel">Une nouvelle idée ?</h3>
                 </div>
 
@@ -25,6 +25,15 @@
                             <div class="form-group">
                                 <label for="image">Lien vers l'image</label>
                                 <input type="text" class="form-control" name="image" placeholder="Lien vers l'image (optionnel)">
+                            </div>
+
+                            <div class="text-center">
+                                ou
+                            </div>
+
+                            <div class="form-group">
+                                <label for="image">Image de l'objet</label>
+                                <input type="file" class="form-control" name="file" placeholder="Fichier image">
                             </div>
 
                             <div class="form-group">

@@ -60,6 +60,11 @@
         foreach ($dbobjects as $object) {
             $object['description'] = trim(str_replace('\"', '"', str_replace("\'", "'", $object['description'])));
             $object['nom'] = str_replace('\"', '"', str_replace("\'", "'", $object['nom']));
+
+            if (null != $object['file']) {
+                $object['image_url'] = 'uploads/img/'.$object['file'];
+            }
+
             $objects[] = $object;
         }
     }
@@ -94,11 +99,11 @@
 
     function auto_version($file)
     {
-        if (!file_exists($_SERVER['DOCUMENT_ROOT'].'/listeNoel/'.$file)) {
+        if (!file_exists($_SERVER['DOCUMENT_ROOT'].'/listeKdo/'.$file)) {
             return $file;
         }
 
-        $mtime = filemtime($_SERVER['DOCUMENT_ROOT'].'/listeNoel/'.$file);
+        $mtime = filemtime($_SERVER['DOCUMENT_ROOT'].'/listeKdo/'.$file);
 
         return $file.'?v='.$mtime;
     }

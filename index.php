@@ -18,7 +18,7 @@
         <?php else : ?>
             <meta property="og:title" content="Ma liste de Noël" />
         <?php endif; ?>
-        <meta property="og:image" content="http://datcharrye.free.fr/listeNoel/img/metaOg.jpg" />
+        <meta property="og:image" content="http://datcharrye.free.fr/listeKdo/img/metaOg.jpg" />
         <meta property="fb:app_id" content="185139272403079" />
         <link rel="stylesheet" type="text/css" media="screen" href="<?php echo auto_version('css/front/'.$currentTheme['label'].'/front.css'); ?>">
     </head>

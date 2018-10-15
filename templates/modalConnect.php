@@ -3,7 +3,7 @@
         <form action="actions/connect.php" method="post">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
                     <h3 class="modal-title" id="myModalLabel">Connexion</h3>
                 </div>
 

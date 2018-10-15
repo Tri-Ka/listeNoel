@@ -40,8 +40,8 @@
                                         <i class="fa fa-gift"></i> J'offre ca !
                                     </a>
                                 <?php elseif ($object['gifted_by'] === $_SESSION['user']['id']) : ?>
-                                    <a href="actions/objectNotGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-default">
-                                        finalement j'offre plus ca ...
+                                    <a href="actions/objectNotGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-danger">
+                                        <i class="fa fa-times"></i> j'offre plus ca
                                     </a>
                                 <?php endif; ?>
                             <?php endif; ?>
@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="info-comment">
-                            <i class="fa fa-comments-o"></i> <span class="fb-comments-count" data-href="http://datcharrye.free.fr/listeNoel/index.php?object=<?php echo $object['id']; ?>"></span>
+                            <i class="fa fa-comments-o"></i> <span class="fb-comments-count" data-href="http://datcharrye.free.fr/listeKdo/index.php?object=<?php echo $object['id']; ?>"></span>
                         </div>
                     </div>
 
@@ -82,7 +82,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
                     <h3 class="modal-title" id="myModalLabel"><?php echo $object['nom']; ?></h3>
                 </div>
 
@@ -101,7 +101,7 @@
                         </div>
 
                         <div class="col-xs-12">
-                            <div class="fb-comments fb-comments-object" data-href="http://datcharrye.free.fr/listeNoel/index.php?object=<?php echo $object['id']; ?>" data-width="100%" data-numposts="100" data-order-by="reverse_time"></div>
+                            <div class="fb-comments fb-comments-object" data-href="http://datcharrye.free.fr/listeKdo/index.php?object=<?php echo $object['id']; ?>" data-width="100%" data-numposts="100" data-order-by="reverse_time"></div>
                         </div>
                     </div>
                 </div>
@@ -120,8 +120,8 @@
                                     <i class="fa fa-gift"></i> J'offre ca !
                                 </a>
                             <?php elseif ($object['gifted_by'] === $_SESSION['user']['id']) : ?>
-                                <a href="actions/objectNotGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-default btn-xs">
-                                    finalement j'offre plus ca ...
+                                <a href="actions/objectNotGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-danger">
+                                    <i class="fa fa-times"></i> j'offre plus ca
                                 </a>
                             <?php endif; ?>
                         <?php endif; ?>

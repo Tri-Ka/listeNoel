@@ -3,7 +3,7 @@
         <form action="actions/editUser.php" method="post" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
                     <h3 class="modal-title" id="myModalLabel">Modifier</h3>
                 </div>
 

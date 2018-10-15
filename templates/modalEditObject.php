@@ -1,9 +1,9 @@
 <div class="modal fade" id="modal-edit-object-<?php echo $object['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
-        <form action="actions/editObject.php" method="post">
+        <form action="actions/editObject.php" method="post" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
                     <h3 class="modal-title" id="myModalLabel">Modifier: <?php echo $object['nom']; ?></h3>
                 </div>
 
@@ -23,9 +23,18 @@
                                 <textarea class="form-control" name="description" placeholder="Description" required="required" rows="6"><?php echo $object['description']; ?></textarea>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group link-img-input">
                                 <label for="image">Lien vers l'image</label>
                                 <input type="text" class="form-control" name="image" placeholder="Lien vers l'image (optionnel)" value="<?php echo $object['image_url']; ?>">
+                            </div>
+
+                            <div class="text-center or-div">
+                                ou
+                            </div>
+
+                            <div class="form-group link-file-input">
+                                <label for="image">Image de l'objet</label>
+                                <input type="file" class="form-control" name="file" placeholder="Fichier image">
                             </div>
 
                             <div class="form-group">
