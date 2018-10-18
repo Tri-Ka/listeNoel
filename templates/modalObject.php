@@ -22,16 +22,16 @@
                                 <textarea class="form-control" name="description" placeholder="Description" required="required" rows="6"></textarea>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group link-img-input">
                                 <label for="image">Lien vers l'image</label>
                                 <input type="text" class="form-control" name="image" placeholder="Lien vers l'image (optionnel)">
                             </div>
 
-                            <div class="text-center">
+                            <div class="text-center or-div">
                                 ou
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group link-file-input">
                                 <label for="image">Image de l'objet</label>
                                 <input type="file" class="form-control" name="file" placeholder="Fichier image">
                             </div>

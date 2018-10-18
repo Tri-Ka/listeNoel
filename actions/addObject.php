@@ -9,7 +9,7 @@ $link = $_POST['link'];
 $userId = $_POST['user_id'];
 $fileName = null;
 
-if ($file) {
+if (null != $file['name']) {
     $fileSize = $_FILES['file']['size'];
     $fileSize = round($fileSize / 1024 / 1024, 1);
 
@@ -31,6 +31,26 @@ if ($file) {
     }
 
     $fileName = $_FILES['file']['name'];
+
+    $target_dir = '../uploads/img/';
+
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir, 0777);
+    }
+
+    $target_file = $target_dir.basename($_FILES['file']['name']);
+    $uploadOk = 1;
+    $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+
+    if ($uploadOk) {
+        if (move_uploaded_file($_FILES['file']['tmp_name'], $target_file)) {
+            $pictureFile = $_FILES['file']['name'];
+        } else {
+            $_SESSION['error'] = 'erreur lors de l\'upload';
+            header('Location: ../index.php');
+            exit;
+        }
+    }
 }
 
 if ('' !== $nom && '' !== $description) {
@@ -42,26 +62,6 @@ if ('' !== $nom && '' !== $description) {
         'user_id' => $userId,
         'file' => $fileName,
     ));
-}
-
-$target_dir = '../uploads/img/';
-
-if (!file_exists($target_dir)) {
-    mkdir($target_dir, 0777);
-}
-
-$target_file = $target_dir.basename($_FILES['file']['name']);
-$uploadOk = 1;
-$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-
-if ($uploadOk) {
-    if (move_uploaded_file($_FILES['file']['tmp_name'], $target_file)) {
-        $pictureFile = $_FILES['file']['name'];
-    } else {
-        $_SESSION['error'] = 'erreur lors de l\'upload';
-        header('Location: ../index.php');
-        exit;
-    }
 }
 
 header('Location: ../index.php?user='.$_SESSION['user']['code']);
