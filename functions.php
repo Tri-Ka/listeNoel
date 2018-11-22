@@ -65,6 +65,20 @@
                 $object['image_url'] = 'uploads/img/'.$object['file'];
             }
 
+            $sqlComment = "SELECT * FROM comment WHERE product_id = '".$object['id']."'";
+            $dataComments = mysql_query($sqlComment);
+            $dbComments = array();
+
+            while ($rowComment = mysql_fetch_assoc($dataComments)) {
+                $sqlCommentUser = "SELECT * FROM liste_user WHERE id = '".$rowComment['user_id']."'";
+                $dataCommentUser = mysql_query($sqlCommentUser);
+
+                $rowComment['user'] = mysql_fetch_assoc($dataCommentUser);
+                $rowComment['content'] = str_replace('\"', '"', str_replace("\'", "'", $rowComment['content']));
+                $dbComments[] = $rowComment;
+            }
+
+            $object['comments'] = $dbComments;
             $objects[] = $object;
         }
     }

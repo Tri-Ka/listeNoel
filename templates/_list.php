@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="info-comment">
-                            <i class="fa fa-comments-o"></i> <span class="fb-comments-count" data-href="http://datcharrye.free.fr/listeKdo/index.php?object=<?php echo $object['id']; ?>"></span>
+                            <i class="fa fa-comments-o"></i> <span class="comments-count"><?php echo count($object['comments']); ?></span>
                         </div>
                     </div>
 
@@ -101,7 +101,46 @@
                         </div>
 
                         <div class="col-xs-12">
-                            <div class="fb-comments fb-comments-object" data-href="http://datcharrye.free.fr/listeKdo/index.php?object=<?php echo $object['id']; ?>" data-width="100%" data-numposts="100" data-order-by="reverse_time"></div>
+                            <div class="comments" data-comments>
+                                <h5>commentaires:</h5>
+                                <ul class="comments-list" data-comments-list>
+                                    <?php foreach ($object['comments'] as $comment) : ?>
+                                        <li class="comment" data-comment>
+                                            <div class="comment-avatar" style="background-image: url('uploads/<?php echo $comment['user']['id'] .'/'. $comment['user']['pictureFile']; ?>')"></div>
+
+                                            <div class="comment-content">
+                                                <span class="comment-user"><?php echo $comment['user']['nom']; ?></span> <?php echo nl2br($comment['content']); ?>
+
+                                                <?php if (isset($_SESSION['user']) &&  $comment['user']['id'] === $_SESSION['user']['id']) : ?>
+                                                    <a href="actions/deleteComment.php?id=<?php echo $comment['id']; ?>" class="delete-comment" data-delete-comment data-toggle="tooltip" data-original-title="supprimer mon commentaire">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                <?php endif ; ?>
+                                            </div>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+
+                                <?php if (isset($_SESSION['user'])) : ?>
+                                    <form data-form-comment action="actions/addComment.php" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="productId" value="<?php echo $object['id']; ?>">
+
+                                        <div class="form-comment-content">
+                                            <div class="comment-avatar" style="background-image: url('uploads/<?php echo $_SESSION['user']['id'] .'/'. $_SESSION['user']['pictureFile']; ?>')"></div>
+                                            <textarea rows="1" class="comment-form-content" name="content" required="required"></textarea>
+                                            <input data-submit-comment type="submit" name="submit" value="ok" class="btn btn-primary">
+                                        </div>
+                                    </form>
+                                <?php else : ?>
+                                    <div class="help-block text-center">
+                                        <p>connectez vous pour commenter cette idée KDO !</p>
+
+                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#connectModal">
+                                            <i class="fa fa-power-off"></i> Se connecter
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
