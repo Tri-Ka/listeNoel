@@ -70,3 +70,5 @@ $(document).on('click', '[data-delete-comment]', function(e){
 
     e.preventDefault();
 })
+
+autosize($('textarea'));

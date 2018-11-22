@@ -12278,8 +12278,10 @@ textarea {
   padding-right: 45px;
   border-color: #ddd;
   min-height: 42px;
+  position: relative;
+  overflow-y: scroll;
 }
-/* line 529, ../../../compass/sass/front/common/_common.scss */
+/* line 531, ../../../compass/sass/front/common/_common.scss */
 .form-comment-content .btn {
   position: absolute;
   bottom: 2px;
@@ -12292,7 +12294,7 @@ textarea {
   z-index: 10;
 }
 
-/* line 542, ../../../compass/sass/front/common/_common.scss */
+/* line 544, ../../../compass/sass/front/common/_common.scss */
 .help-block {
   display: block;
   margin-top: 5px;
@@ -12306,7 +12308,7 @@ textarea {
   clear: both;
 }
 
-/* line 555, ../../../compass/sass/front/common/_common.scss */
+/* line 557, ../../../compass/sass/front/common/_common.scss */
 .comments-count {
   background: #2196F3;
   color: #fff;

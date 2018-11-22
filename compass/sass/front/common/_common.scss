@@ -524,6 +524,8 @@ textarea {
         padding-right: 45px;
         border-color: #ddd;
         min-height: 42px;
+        position: relative;
+        overflow-y: scroll;
     }
 
     .btn {

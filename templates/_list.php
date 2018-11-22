@@ -127,8 +127,8 @@
 
                                         <div class="form-comment-content">
                                             <div class="comment-avatar" style="background-image: url('uploads/<?php echo $_SESSION['user']['id'] .'/'. $_SESSION['user']['pictureFile']; ?>')"></div>
-                                            <textarea rows="1" class="comment-form-content" name="content" required="required"></textarea>
                                             <input data-submit-comment type="submit" name="submit" value="ok" class="btn btn-primary">
+                                            <textarea rows="1" class="comment-form-content" name="content" required="required"></textarea>
                                         </div>
                                     </form>
                                 <?php else : ?>
