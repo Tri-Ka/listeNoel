@@ -444,11 +444,13 @@ textarea {
     }
 }
 
-.comments-list {
+.comments-list,
+.notification-list {
     margin: 0;
     padding: 0;
 
-    .comment {
+    .comment,
+    .notification {
         list-style: none;
         padding: 10px 0;
         display: block;
@@ -564,4 +566,99 @@ textarea {
     text-align: center;
     line-height: initial;
     vertical-align: text-bottom;
+}
+
+.notifications {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 335px;
+    background: #fff;
+    bottom: 0;
+    z-index: 1000;
+    background: #efefef;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    margin-right: -340px;
+    transition: all .2s;
+
+    &.opened {
+        margin-right: -15px;
+    }
+
+    .notification-list {
+        overflow-y: scroll;
+        height: 100vh;
+    }
+
+    .toggle-notif {
+        position: absolute;
+        left: -55px;
+        top: 20px;
+        width: 40px;
+        height: 40px;
+        line-height: 36px;
+        text-align: center;
+        background: $color-red;
+        color: #fff;
+        border-radius: 50%;
+        font-size: 20px;
+        border: 2px solid #fff;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+
+        .notif-number {
+            position: absolute;
+            font-size: 10px;
+            background: $color-red;
+            line-height: initial;
+            padding: 2px 5px;
+            border-radius: 15px;
+            border: 2px solid;
+            bottom: -5px;
+            right: -5px;
+            text-align: center;
+        }
+    }
+
+    .notification {
+        padding: 10px;
+        border-bottom: 1px solid #efefef;
+        background: #fff;
+
+        &.new {
+            background: $color-red;
+
+            .notif-date {
+                color: #fff;
+            }
+        }
+
+        a {
+            color: #000;
+            display: block;
+            float: left;
+            width: 100%;
+            text-decoration: none;
+        }
+
+        .notif-date {
+            font-size: 9px;
+            text-align: right;
+            margin-top: 10px;
+            float: left;
+            width: 100%;
+            color: #7d7d7d;
+            font-style: italic;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .notifications {
+        width: 80vw;;
+        margin-right: -80vw;
+
+        &.opened {
+            margin-right: 0px;
+        }
+    }
 }

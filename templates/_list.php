@@ -2,7 +2,7 @@
     <div class="grid">
         <?php foreach ($objects as $object) : ?>
             <div class="col-xs-12 col-sm-6 col-md-4 grid-item">
-                <div class="
+                <div id="idea-<?php echo $object['id']; ?>" class="
                     panel panel-default panel-object
                     <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] !== $currentUser['id'] && null !== $object['gifted_by'] && $object['gifted_by'] !== $_SESSION['user']['id']) : ?>
                         gifted
@@ -46,7 +46,7 @@
                                 <?php endif; ?>
                             <?php endif; ?>
 
-                            <a href="#" class="btn btn-default" data-toggle="modal" data-target="#object-<?php echo $object['id']; ?>">
+                            <a href="#" data-show-modal class="btn btn-default" data-toggle="modal" data-target="#object-<?php echo $object['id']; ?>">
                                 + d'infos
                             </a>
                         </div>

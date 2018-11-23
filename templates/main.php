@@ -5,6 +5,7 @@
     <div class="bs-docs-section clearfix">
         <?php include '_top.php'; ?>
         <?php include '_share.php'; ?>
+        <?php include '_notifs.php'; ?>
 
         <?php if ($currentUser) : ?>
             <?php include '_list.php'; ?>

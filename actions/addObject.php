@@ -62,6 +62,15 @@ if ('' !== $nom && '' !== $description) {
         'user_id' => $userId,
         'file' => $fileName,
     ));
+
+    $productId = mysql_insert_id();
+
+    mysql_insert('notification', array(
+        'author_id' => $userId,
+        'product_id' => $productId,
+        'type' => '2',
+        'created_at' => date('Y-m-d H:i:s')
+    ));
 }
 
 header('Location: ../index.php?user='.$_SESSION['user']['code']);

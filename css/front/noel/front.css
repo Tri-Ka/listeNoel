@@ -12196,20 +12196,27 @@ textarea {
   }
 }
 /* line 447, ../../../compass/sass/front/common/_common.scss */
-.comments-list {
+.comments-list,
+.notification-list {
   margin: 0;
   padding: 0;
 }
-/* line 451, ../../../compass/sass/front/common/_common.scss */
-.comments-list .comment {
+/* line 452, ../../../compass/sass/front/common/_common.scss */
+.comments-list .comment,
+.comments-list .notification,
+.notification-list .comment,
+.notification-list .notification {
   list-style: none;
   padding: 10px 0;
   display: block;
   float: left;
   width: 100%;
 }
-/* line 458, ../../../compass/sass/front/common/_common.scss */
-.comments-list .comment .comment-avatar {
+/* line 460, ../../../compass/sass/front/common/_common.scss */
+.comments-list .comment .comment-avatar,
+.comments-list .notification .comment-avatar,
+.notification-list .comment .comment-avatar,
+.notification-list .notification .comment-avatar {
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -12219,8 +12226,11 @@ textarea {
   float: left;
   margin-right: 15px;
 }
-/* line 469, ../../../compass/sass/front/common/_common.scss */
-.comments-list .comment .comment-content {
+/* line 471, ../../../compass/sass/front/common/_common.scss */
+.comments-list .comment .comment-content,
+.comments-list .notification .comment-content,
+.notification-list .comment .comment-content,
+.notification-list .notification .comment-content {
   float: left;
   max-width: calc(100% - 55px);
   padding: 10px 15px;
@@ -12228,13 +12238,19 @@ textarea {
   border-radius: 30px;
   position: relative;
 }
-/* line 478, ../../../compass/sass/front/common/_common.scss */
-.comments-list .comment .comment-user {
+/* line 480, ../../../compass/sass/front/common/_common.scss */
+.comments-list .comment .comment-user,
+.comments-list .notification .comment-user,
+.notification-list .comment .comment-user,
+.notification-list .notification .comment-user {
   font-weight: bold;
   margin-right: 4px;
 }
-/* line 483, ../../../compass/sass/front/common/_common.scss */
-.comments-list .comment .delete-comment {
+/* line 485, ../../../compass/sass/front/common/_common.scss */
+.comments-list .comment .delete-comment,
+.comments-list .notification .delete-comment,
+.notification-list .comment .delete-comment,
+.notification-list .notification .delete-comment {
   width: 20px;
   height: 20px;
   text-align: center;
@@ -12250,14 +12266,14 @@ textarea {
   font-size: 11px;
 }
 
-/* line 501, ../../../compass/sass/front/common/_common.scss */
+/* line 503, ../../../compass/sass/front/common/_common.scss */
 .form-comment-content {
   position: relative;
   margin-top: 15px;
   float: left;
   width: 100%;
 }
-/* line 507, ../../../compass/sass/front/common/_common.scss */
+/* line 509, ../../../compass/sass/front/common/_common.scss */
 .form-comment-content .comment-avatar {
   display: inline-block;
   width: 40px;
@@ -12268,7 +12284,7 @@ textarea {
   float: left;
   margin-right: 15px;
 }
-/* line 518, ../../../compass/sass/front/common/_common.scss */
+/* line 520, ../../../compass/sass/front/common/_common.scss */
 .form-comment-content .comment-form-content {
   float: left;
   width: calc(100% - 55px) !important;
@@ -12281,7 +12297,7 @@ textarea {
   position: relative;
   overflow-y: scroll;
 }
-/* line 531, ../../../compass/sass/front/common/_common.scss */
+/* line 533, ../../../compass/sass/front/common/_common.scss */
 .form-comment-content .btn {
   position: absolute;
   bottom: 2px;
@@ -12294,7 +12310,7 @@ textarea {
   z-index: 10;
 }
 
-/* line 544, ../../../compass/sass/front/common/_common.scss */
+/* line 546, ../../../compass/sass/front/common/_common.scss */
 .help-block {
   display: block;
   margin-top: 5px;
@@ -12308,7 +12324,7 @@ textarea {
   clear: both;
 }
 
-/* line 557, ../../../compass/sass/front/common/_common.scss */
+/* line 559, ../../../compass/sass/front/common/_common.scss */
 .comments-count {
   background: #E23030;
   color: #fff;
@@ -12319,4 +12335,101 @@ textarea {
   text-align: center;
   line-height: initial;
   vertical-align: text-bottom;
+}
+
+/* line 571, ../../../compass/sass/front/common/_common.scss */
+.notifications {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 335px;
+  background: #fff;
+  bottom: 0;
+  z-index: 1000;
+  background: #efefef;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+  margin-right: -340px;
+  transition: all .2s;
+}
+/* line 584, ../../../compass/sass/front/common/_common.scss */
+.notifications.opened {
+  margin-right: -15px;
+}
+/* line 588, ../../../compass/sass/front/common/_common.scss */
+.notifications .notification-list {
+  overflow-y: scroll;
+  height: 100vh;
+}
+/* line 593, ../../../compass/sass/front/common/_common.scss */
+.notifications .toggle-notif {
+  position: absolute;
+  left: -55px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  line-height: 36px;
+  text-align: center;
+  background: #E23030;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 20px;
+  border: 2px solid #fff;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+}
+/* line 608, ../../../compass/sass/front/common/_common.scss */
+.notifications .toggle-notif .notif-number {
+  position: absolute;
+  font-size: 10px;
+  background: #E23030;
+  line-height: initial;
+  padding: 2px 5px;
+  border-radius: 15px;
+  border: 2px solid;
+  bottom: -5px;
+  right: -5px;
+  text-align: center;
+}
+/* line 622, ../../../compass/sass/front/common/_common.scss */
+.notifications .notification {
+  padding: 10px;
+  border-bottom: 1px solid #efefef;
+  background: #fff;
+}
+/* line 627, ../../../compass/sass/front/common/_common.scss */
+.notifications .notification.new {
+  background: #E23030;
+}
+/* line 630, ../../../compass/sass/front/common/_common.scss */
+.notifications .notification.new .notif-date {
+  color: #fff;
+}
+/* line 635, ../../../compass/sass/front/common/_common.scss */
+.notifications .notification a {
+  color: #000;
+  display: block;
+  float: left;
+  width: 100%;
+  text-decoration: none;
+}
+/* line 643, ../../../compass/sass/front/common/_common.scss */
+.notifications .notification .notif-date {
+  font-size: 9px;
+  text-align: right;
+  margin-top: 10px;
+  float: left;
+  width: 100%;
+  color: #7d7d7d;
+  font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+  /* line 656, ../../../compass/sass/front/common/_common.scss */
+  .notifications {
+    width: 80vw;
+    margin-right: -80vw;
+  }
+  /* line 660, ../../../compass/sass/front/common/_common.scss */
+  .notifications.opened {
+    margin-right: 0px;
+  }
 }

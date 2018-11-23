@@ -13,6 +13,13 @@ if ('' !== $content && '' !== $userId) {
     ));
 
     $commentId = mysql_insert_id();
+
+    mysql_insert('notification', array(
+        'author_id' => $userId,
+        'product_id' => $productId,
+        'type' => '1',
+        'created_at' => date('Y-m-d H:i:s')
+    ));
 }
 
 $content = str_replace('\"', '"', str_replace("\'", "'", $content));

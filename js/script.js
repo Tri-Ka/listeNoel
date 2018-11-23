@@ -71,4 +71,41 @@ $(document).on('click', '[data-delete-comment]', function(e){
     e.preventDefault();
 })
 
+$('[data-toggle-notif]').click(function(e){
+    e.preventDefault();
+
+    $('[data-notif]').toggleClass('opened');
+
+    var url = $(this).attr('href');
+
+    $.ajax({
+        type: "GET",
+        url: url
+    });
+})
+
+$(document).ready(function(){
+    var newNotifs = $('.notification.new').length
+
+    if (0 < newNotifs) {
+        $('<span>').html(newNotifs).addClass('notif-number').appendTo('[data-toggle-notif]');
+
+    }
+
+    var hash = window.location.hash;
+    $(hash).find('[data-show-modal]').click();
+
+    $('[data-notif-link').click(function(e){
+        console.log('ok');
+        var hash = '#' + $(this).attr('href').split("#")[1];
+        $(hash).find('[data-show-modal]').click();
+    })
+})
+
+$('body').click(function(e){
+    if (0 == $(e.target).parents('[data-notif]').length) {
+        $('[data-notif]').removeClass('opened');
+    }
+})
+
 autosize($('textarea'));

@@ -79,12 +79,74 @@
             }
 
             $object['comments'] = $dbComments;
-            $objects[] = $object;
+            $objects[$object['id']] = $object;
         }
     }
 
     if (isset($_SESSION['user']) && null !== $_SESSION['user']) {
         $_SESSION['user']['friends'] = retrieveFriends($_SESSION['user']['id']);
+        $_SESSION['user']['notifications'] = retrieveNotifications($_SESSION['user']);
+    }
+
+    function retrieveNotifications($user)
+    {
+        $sqlUser = "SELECT * FROM liste_user WHERE id = '".$user['id']."'";
+        $dataUser = mysql_query($sqlUser);
+        $datasUser = mysql_fetch_assoc($dataUser);
+
+        $_SESSION['user']['last_seen_notif'] = $datasUser['last_seen_notif'];
+
+        foreach ($user['friends'] as $friend) {
+            $friendUserIds[] = $friend['id'];
+        }
+
+        $sql = "SELECT id FROM liste_noel WHERE user_id = '".$user['id']."'";
+        $datas = mysql_query($sql);
+
+        while ($row = mysql_fetch_assoc($datas)) {
+            $productUserIds[] = $row['id'];
+        }
+
+        $sql = "SELECT id FROM liste_noel WHERE user_id IN (".implode(', ', array_values($friendUserIds)).")";
+        $datas = mysql_query($sql);
+
+        while ($row = mysql_fetch_assoc($datas)) {
+            $productFriendIds[] = $row['id'];
+        }
+
+        $sql = "SELECT * FROM notification
+        WHERE (author_id != '".$user['id']."' AND product_id IN (".implode(', ', array_values($productUserIds))."))
+        OR (author_id != '".$user['id']."' AND author_id IN (".implode(', ', array_values($friendUserIds)).") AND type = 2)
+        OR (author_id != '".$user['id']."' AND author_id IN (".implode(', ', array_values($friendUserIds)).") AND type = 1 AND product_id IN (".implode(', ', array_values($productFriendIds))."))
+        ORDER BY created_at DESC";
+
+        $datas = mysql_query($sql);
+
+        $notifications = array();
+
+        while ($row = mysql_fetch_assoc($datas)) {
+            $sqlNotifUser = "SELECT * FROM liste_user WHERE id = '".$row['author_id']."'";
+            $dataNotifUser = mysql_query($sqlNotifUser);
+            $row['user'] = mysql_fetch_assoc($dataNotifUser);
+
+            $sqlNotifProduct = "SELECT * FROM liste_noel WHERE id = '".$row['product_id']."'";
+            $dataNotifProduct = mysql_query($sqlNotifProduct);
+            $row['product'] = mysql_fetch_assoc($dataNotifProduct);
+
+            $sqlNotifProductUser = "SELECT * FROM liste_user WHERE id = '".$row['product']['user_id']."'";
+            $dataNotifProductUser = mysql_query($sqlNotifProductUser);
+            $row['product_user'] = mysql_fetch_assoc($dataNotifProductUser);
+
+            $row['new'] = false;
+
+            if (null === $_SESSION['user']['last_seen_notif'] || strtotime($row['created_at']) > strtotime($_SESSION['user']['last_seen_notif'])) {
+                $row['new'] = true;
+            }
+
+            $notifications[] = $row;
+        }
+
+        return $notifications;
     }
 
     function retrieveUser($code)

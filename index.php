@@ -49,7 +49,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
         <div id="fb-root"></div>
 
-        <script src="js/script.js"></script>
+        <script src="<?php echo auto_version('js/script.js'); ?>"></script>
         <script async src="https://static.addtoany.com/menu/page.js"></script>
         <script>(function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
