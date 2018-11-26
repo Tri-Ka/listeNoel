@@ -18,8 +18,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="description">Description *</label>
-                                <textarea class="form-control" name="description" placeholder="Description" required="required" rows="6"></textarea>
+                                <label for="description">Description</label>
+                                <textarea class="form-control" name="description" placeholder="Description" rows="6"></textarea>
                             </div>
 
                             <div class="form-group link-img-input">

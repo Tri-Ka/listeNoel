@@ -90,6 +90,12 @@
 
     function retrieveNotifications($user)
     {
+        $notifications = array();
+
+        if (0 === count($user['friends'])) {
+            return array();
+        }
+
         $sqlUser = "SELECT * FROM liste_user WHERE id = '".$user['id']."'";
         $dataUser = mysql_query($sqlUser);
         $datasUser = mysql_fetch_assoc($dataUser);
@@ -122,8 +128,6 @@
 
         $datas = mysql_query($sql);
 
-        $notifications = array();
-
         while ($row = mysql_fetch_assoc($datas)) {
             $sqlNotifUser = "SELECT * FROM liste_user WHERE id = '".$row['author_id']."'";
             $dataNotifUser = mysql_query($sqlNotifUser);
@@ -141,6 +145,20 @@
 
             if (null === $_SESSION['user']['last_seen_notif'] || strtotime($row['created_at']) > strtotime($_SESSION['user']['last_seen_notif'])) {
                 $row['new'] = true;
+            }
+
+            $d1 = date('Y-m-d H:i:s');
+            $d2 = $row['created_at'];
+            $diff = cc2_date_diff($d1, $d2);
+
+            if (0 !== $diff['d']) {
+                $row['timePassed'] = $diff['d'].' j';
+            } elseif (0 !== $diff['h']) {
+                $row['timePassed'] = $diff['h'].' h';
+            } elseif (0 !== $diff['m']) {
+                $row['timePassed'] = $diff['m'].' min';
+            } elseif (0 !== $diff['s']) {
+                $row['timePassed'] = $diff['s'].' sec';
             }
 
             $notifications[] = $row;
@@ -182,4 +200,86 @@
         $mtime = filemtime($_SERVER['DOCUMENT_ROOT'].'/listeKdo/'.$file);
 
         return $file.'?v='.$mtime;
+    }
+
+    function cc2_date_diff($start, $end)
+    {
+        $sdate = strtotime($start);
+        $edate = strtotime($end);
+
+        if ($edate < $sdate) {
+            $sdate_temp = $sdate;
+            $sdate = $edate;
+            $edate = $sdate_temp;
+        }
+        $time = $edate - $sdate;
+        $preday[0] = 0;
+
+        $diff = array(
+            's' => 0,
+            'm' => 0,
+            'h' => 0,
+            'd' => 0,
+        );
+
+        if ($time>=0 && $time<=59) {
+            // Seconds
+            $timeshift = $time.' seconds ';
+            $diff['s'] = $time;
+        } elseif ($time>=60 && $time<=3599) {
+            // Minutes + Seconds
+            $pmin = ($edate - $sdate) / 60;
+            $premin = explode('.', $pmin);
+
+            $presec = $pmin-$premin[0];
+            $sec = $presec*60;
+
+            $timeshift = $premin[0].' min '.round($sec, 0).' sec ';
+            $diff['m'] = $premin[0];
+            $diff['s'] = round($sec, 0);
+        } elseif ($time>=3600 && $time<=86399) {
+            // Hours + Minutes
+            $phour = ($edate - $sdate) / 3600;
+            $prehour = explode('.', $phour);
+
+            $premin = $phour-$prehour[0];
+            $min = explode('.', $premin*60);
+
+            if (!isset($min[1])) {
+                $min[1] = 0;
+            }
+
+            $presec = '0.'.$min[1];
+            $sec = $presec*60;
+
+            $timeshift = $prehour[0].' hrs '.$min[0].' min '.round($sec, 0).' sec ';
+            $diff['h'] = $prehour[0];
+            $diff['m'] = $min[0];
+            $diff['s'] = round($sec, 0);
+        } elseif ($time>=86400) {
+            // Days + Hours + Minutes
+            $pday = ($edate - $sdate) / 86400;
+            $preday = explode('.', $pday);
+
+            $phour = $pday-$preday[0];
+            $prehour = explode('.', $phour*24);
+
+            $premin = ($phour*24)-$prehour[0];
+            $min = explode('.', $premin*60);
+
+            if (!isset($min[1])) {
+                $min[1] = 0;
+            }
+
+            $presec = '0.'.$min[1];
+            $sec = $presec*60;
+
+            $timeshift = $preday[0].' days '.$prehour[0].' hrs '.$min[0].' min '.round($sec, 0).' sec ';
+            $diff['d'] = $preday[0];
+            $diff['h'] = $prehour[0];
+            $diff['m'] = $min[0];
+            $diff['s'] = round($sec, 0);
+        }
+
+        return $diff;
     }

@@ -24,7 +24,7 @@
                             </div>
 
                             <div class="notif-date">
-                                <?php echo date('d-m-Y H:i:s', strtotime($notification['created_at'])); ?>
+                                <?php echo $notification['timePassed']; ?>
                             </div>
                         </a>
                     </li>

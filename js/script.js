@@ -46,8 +46,10 @@ $('[data-form-comment]').on('submit', function(e){
         url: url,
         data: form.serialize(),
         success: function(data) {
+            var objectId = form.find('[data-object-id]').val();
             form.parents('[data-comments]').find('[data-comments-list]').append(data);
             form.find('textarea').val('');
+            $('[data-comments-count-' + objectId+']').html(parseInt($('[data-comments-count-'+objectId+']').html()) + 1);
         }
     });
 
@@ -63,7 +65,9 @@ $(document).on('click', '[data-delete-comment]', function(e){
             type: "GET",
             url: url,
             success: function(data) {
+                var objectId = comment.parents('.modal').attr('data-object-id');
                 comment.remove();
+                $('[data-comments-count-' + objectId+']').html(parseInt($('[data-comments-count-'+objectId+']').html()) - 1);
             }
         });
     }

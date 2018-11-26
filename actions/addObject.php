@@ -53,7 +53,7 @@ if (null != $file['name']) {
     }
 }
 
-if ('' !== $nom && '' !== $description) {
+if ('' !== $nom) {
     mysql_insert('liste_noel', array(
         'nom' => $nom,
         'description' => $description,

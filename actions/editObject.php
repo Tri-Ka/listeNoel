@@ -66,7 +66,7 @@ if (null != $file['name']) {
     }
 }
 
-if ('' !== $nom && '' !== $description) {
+if ('' !== $nom) {
     editObject(array(
         'nom' => $nom,
         'description' => $description,

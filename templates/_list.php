@@ -22,6 +22,10 @@
                         <a href="#" data-toggle="modal" data-target="#object-<?php echo $object['id']; ?>" class="img-container text-center">
                             <img src="<?php echo $object['image_url']; ?>">
                         </a>
+                    <?php else : ?>
+                        <a href="#" data-toggle="modal" data-target="#object-<?php echo $object['id']; ?>" class="img-container text-center">
+                            <img src="img/idea-default.jpg" style="width: 100%;">
+                        </a>
                     <?php endif; ?>
 
                     <div class="panel-detail">
@@ -51,9 +55,9 @@
                             </a>
                         </div>
 
-                        <div class="info-comment">
-                            <i class="fa fa-comments-o"></i> <span class="comments-count"><?php echo count($object['comments']); ?></span>
-                        </div>
+                        <a href="#" data-toggle="modal" data-target="#object-<?php echo $object['id']; ?>" class="info-comment">
+                            <i class="fa fa-comments-o"></i> <span class="comments-count" data-comments-count-<?php echo $object['id']; ?>><?php echo count($object['comments']); ?></span>
+                        </a>
                     </div>
 
                     <?php if ('' !== $object['link']) : ?>
@@ -78,7 +82,7 @@
 </div>
 
 <?php foreach ($objects as $object) : ?>
-    <div class="modal modal-object fade" id="object-<?php echo $object['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalObject<?php echo $object['id']; ?>">
+    <div class="modal modal-object fade" data-object-id="<?php echo $object['id']; ?>" id="object-<?php echo $object['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalObject<?php echo $object['id']; ?>">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -92,13 +96,19 @@
                             <div class="col-xs-12 text-center" style="margin-bottom: 15px;">
                                 <img src="<?php echo $object['image_url']; ?>" style="width: 100%;">
                             </div>
+                        <?php else : ?>
+                            <div class="col-xs-12 text-center" style="margin-bottom: 15px;">
+                                <img src="img/idea-default.jpg" style="width: 100%;">
+                            </div>
                         <?php endif; ?>
 
-                        <div class="col-xs-12">
-                            <p>
-                                <?php echo nl2br($object['description']); ?>
-                            </p>
-                        </div>
+                        <?php if ('' != $object['description']) : ?>
+                            <div class="col-xs-12">
+                                <p>
+                                    <?php echo nl2br($object['description']); ?>
+                                </p>
+                            </div>
+                        <?php endif; ?>
 
                         <div class="col-xs-12">
                             <div class="comments" data-comments>
@@ -123,7 +133,7 @@
 
                                 <?php if (isset($_SESSION['user'])) : ?>
                                     <form data-form-comment action="actions/addComment.php" method="post" enctype="multipart/form-data">
-                                        <input type="hidden" name="productId" value="<?php echo $object['id']; ?>">
+                                        <input type="hidden" data-object-id name="productId" value="<?php echo $object['id']; ?>">
 
                                         <div class="form-comment-content">
                                             <div class="comment-avatar" style="background-image: url('uploads/<?php echo $_SESSION['user']['id'] .'/'. $_SESSION['user']['pictureFile']; ?>')"></div>

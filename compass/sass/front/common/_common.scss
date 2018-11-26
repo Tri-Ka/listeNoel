@@ -5,6 +5,11 @@
     outline: none;
 }
 
+a:hover,
+a:focus {
+    color: $color-red;
+}
+
 .no-pad-left {
 	padding-left: 0;
 }
@@ -588,6 +593,7 @@ textarea {
     .notification-list {
         overflow-y: scroll;
         height: 100vh;
+         -webkit-overflow-scrolling: touch;
     }
 
     .toggle-notif {
@@ -650,6 +656,11 @@ textarea {
             font-style: italic;
         }
     }
+}
+
+.info-comment {
+    color: #000;
+    text-decoration: none !important;
 }
 
 @media screen and (max-width: 768px) {
