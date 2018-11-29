@@ -61,6 +61,7 @@ if ('' !== $nom) {
         'link' => $link,
         'user_id' => $userId,
         'file' => $fileName,
+        'created_at' => date('Y-m-d H:i:s')
     ));
 
     $productId = mysql_insert_id();

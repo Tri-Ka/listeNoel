@@ -1,5 +1,20 @@
+<?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] !== $currentUser['id']) : ?>
+    <div class="box-check-display">
+        <label for="check-gifted">Voir les Kdos offerts / offrir un Kdo</label>
+        <input data-switch-gifted name="check-gifted" class="apple-switch" type="checkbox">
+    </div>
+<?php endif; ?>
+
 <div class="row">
     <div class="grid">
+        <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] === $currentUser['id']) : ?>
+            <div class="col-xs-12 col-sm-6 col-md-4 grid-item">
+                <a class="panel panel-default panel-object btn-add" href="#" data-toggle="modal" data-target="#myModal" data-toggle2="tooltip" data-original-title="ajouter une idée Kdo">
+                    <i class="fa fa-gift"></i>
+                </a>
+            </div>
+        <?php endif; ?>
+
         <?php foreach ($objects as $object) : ?>
             <div class="col-xs-12 col-sm-6 col-md-4 grid-item">
                 <div id="idea-<?php echo $object['id']; ?>" class="
@@ -40,11 +55,11 @@
                         <div class="text-center marged-top">
                             <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] !== $currentUser['id']) : ?>
                                 <?php if (null === $object['gifted_by']) : ?>
-                                    <a href="actions/objectGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-primary">
+                                    <a href="actions/objectGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-primary gifted-display">
                                         <i class="fa fa-gift"></i> J'offre ca !
                                     </a>
                                 <?php elseif ($object['gifted_by'] === $_SESSION['user']['id']) : ?>
-                                    <a href="actions/objectNotGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-danger">
+                                    <a href="actions/objectNotGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-danger gifted-display">
                                         <i class="fa fa-times"></i> j'offre plus ca
                                     </a>
                                 <?php endif; ?>
@@ -70,14 +85,6 @@
                 </div>
             </div>
         <?php endforeach; ?>
-
-        <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] === $currentUser['id']) : ?>
-            <div class="col-xs-12 col-sm-6 col-md-4 grid-item">
-                <a class="panel panel-default panel-object btn-add" href="#" data-toggle="modal" data-target="#myModal" data-toggle2="tooltip" data-original-title="ajouter une idée Kdo">
-                    <i class="fa fa-gift"></i>
-                </a>
-            </div>
-        <?php endif; ?>
     </div>
 </div>
 
@@ -165,11 +172,11 @@
 
                         <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] !== $currentUser['id']) : ?>
                             <?php if (null === $object['gifted_by']) : ?>
-                                <a href="actions/objectGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-primary">
+                                <a href="actions/objectGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-primary gifted-display">
                                     <i class="fa fa-gift"></i> J'offre ca !
                                 </a>
                             <?php elseif ($object['gifted_by'] === $_SESSION['user']['id']) : ?>
-                                <a href="actions/objectNotGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-danger">
+                                <a href="actions/objectNotGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-danger gifted-display">
                                     <i class="fa fa-times"></i> j'offre plus ca
                                 </a>
                             <?php endif; ?>

@@ -46,7 +46,7 @@
     }
 
     if ($currentUser) {
-        $sql = "SELECT * FROM liste_noel WHERE user_id = '".$currentUser['id']."'";
+        $sql = "SELECT * FROM liste_noel WHERE user_id = '".$currentUser['id']."' ORDER BY created_at DESC, id DESC";
         $datas = mysql_query($sql);
 
         $dbobjects = array();
@@ -120,10 +120,16 @@
             $productFriendIds[] = $row['id'];
         }
 
+        $moreSql = '';
+
+        if (0 < count($productFriendIds)) {
+            $moreSql = " OR (author_id != '".$user['id']."' AND author_id IN (".implode(', ', array_values($friendUserIds)).") AND type = 1 AND product_id IN (".implode(', ', array_values($productFriendIds)).")) ";
+        }
+
         $sql = "SELECT * FROM notification
         WHERE (author_id != '".$user['id']."' AND product_id IN (".implode(', ', array_values($productUserIds))."))
         OR (author_id != '".$user['id']."' AND author_id IN (".implode(', ', array_values($friendUserIds)).") AND type = 2)
-        OR (author_id != '".$user['id']."' AND author_id IN (".implode(', ', array_values($friendUserIds)).") AND type = 1 AND product_id IN (".implode(', ', array_values($productFriendIds))."))
+        ".$moreSql."
         ORDER BY created_at DESC";
 
         $datas = mysql_query($sql);

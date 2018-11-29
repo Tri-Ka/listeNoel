@@ -112,4 +112,12 @@ $('body').click(function(e){
     }
 })
 
+$('[data-switch-gifted]').on('change', function(e){
+    if ($(this).is(':checked')) {
+        $('body').addClass('show-gifted');
+    } else {
+        $('body').removeClass('show-gifted');
+    }
+});
+
 autosize($('textarea'));
