@@ -19,7 +19,7 @@
             <div class="col-xs-12 col-sm-6 col-md-4 grid-item">
                 <div id="idea-<?php echo $object['id']; ?>" class="
                     panel panel-default panel-object
-                    <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] !== $currentUser['id'] && null !== $object['gifted_by'] && $object['gifted_by'] !== $_SESSION['user']['id']) : ?>
+                    <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] !== $currentUser['id'] && null !== $object['gifted_by']) : ?>
                         gifted
                     <?php endif; ?>
                 ">
@@ -51,37 +51,41 @@
                                 [...]
                             <?php endif; ?>
                         </p>
-
-                        <div class="text-center marged-top">
-                            <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] !== $currentUser['id']) : ?>
-                                <?php if (null === $object['gifted_by']) : ?>
-                                    <a href="actions/objectGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-primary gifted-display">
-                                        <i class="fa fa-gift"></i> J'offre ca !
-                                    </a>
-                                <?php elseif ($object['gifted_by'] === $_SESSION['user']['id']) : ?>
-                                    <a href="actions/objectNotGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-danger gifted-display">
-                                        <i class="fa fa-times"></i> j'offre plus ca
-                                    </a>
-                                <?php endif; ?>
-                            <?php endif; ?>
-
-                            <a href="#" data-show-modal class="btn btn-default" data-toggle="modal" data-target="#object-<?php echo $object['id']; ?>">
-                                + d'infos
-                            </a>
-                        </div>
-
-                        <a href="#" data-toggle="modal" data-target="#object-<?php echo $object['id']; ?>" class="info-comment">
-                            <i class="fa fa-comments-o"></i> <span class="comments-count" data-comments-count-<?php echo $object['id']; ?>><?php echo count($object['comments']); ?></span>
-                        </a>
                     </div>
 
-                    <?php if ('' !== $object['link']) : ?>
-                        <div class="prix">
-                            <a target="_blank" href="<?php echo $object['link']; ?>" class="btn btn-lg btn-default btn-block">
-                                <span class="hidden-xs">C'est trop bien ! </span> Où je trouve ca ?
+                    <div class="panel-bottom carded">
+                        <a href="#" data-toggle="modal" data-target="#object-<?php echo $object['id']; ?>" class="icon-bottom" data-toggle2="tooltip" data-original-title="Commentaires">
+                            <i class="fa fa-comments-o"></i>
+
+                            <span class="sub-icon comments-count" data-comments-count-<?php echo $object['id']; ?>><?php echo count($object['comments']); ?></span>
+                        </a>
+
+                        <a href="#" data-show-modal class="icon-bottom" data-toggle="modal" data-target="#object-<?php echo $object['id']; ?>" data-toggle2="tooltip" data-original-title="Plus d'infos">
+                            <i class="fa fa-info-circle"></i>
+                        </a>
+
+                        <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] !== $currentUser['id']) : ?>
+                            <?php if (null === $object['gifted_by']) : ?>
+                                <a href="actions/objectGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="icon-bottom primary gifted-display" data-toggle="tooltip" data-original-title="Offrir ce Kdo">
+                                    <i class="fa fa-gift"></i>
+                                </a>
+                            <?php elseif ($object['gifted_by'] === $_SESSION['user']['id']) : ?>
+                                <a href="actions/objectNotGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="icon-bottom gifted-display green" data-toggle="tooltip" data-original-title="Ne plus offrir ce Kdo">
+                                    <i class="fa fa-check"></i>
+
+                                    <span class="sub-icon">
+                                        <i class="fa fa-times"></i>
+                                    </span>
+                                </a>
+                            <?php endif; ?>
+                        <?php endif; ?>
+
+                        <?php if ('' !== $object['link']) : ?>
+                            <a target="_blank" href="<?php echo $object['link']; ?>" class="icon-bottom"  data-toggle2="tooltip" data-original-title="Accéder au site">
+                                <i class="fa fa-at"></i>
                             </a>
-                        </div>
-                    <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -163,29 +167,29 @@
                 </div>
 
                 <div class="modal-footer">
-                    <div class="text-center">
-                        <?php if ('' !== $object['link']) : ?>
-                            <a target="_blank" href="<?php echo $object['link']; ?>" class="btn btn-default">
-                                C'est trop bien ! Où je trouve ca ?
-                            </a>
-                        <?php endif; ?>
+                    <div class="panel-bottom no-pad">
+                        <div class="text-left">
+                            <?php if ('' !== $object['link']) : ?>
+                                <a target="_blank" href="<?php echo $object['link']; ?>" class="icon-bottom grey"  data-toggle2="tooltip" data-original-title="Accéder au site">
+                                    <i class="fa fa-at"></i>
+                                </a>
+                            <?php endif; ?>
+                        </div>
 
                         <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] !== $currentUser['id']) : ?>
                             <?php if (null === $object['gifted_by']) : ?>
-                                <a href="actions/objectGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-primary gifted-display">
-                                    <i class="fa fa-gift"></i> J'offre ca !
+                                <a href="actions/objectGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="icon-bottom primary gifted-display" data-toggle="tooltip" data-original-title="Offrir ce Kdo">
+                                    <i class="fa fa-gift"></i>
                                 </a>
                             <?php elseif ($object['gifted_by'] === $_SESSION['user']['id']) : ?>
-                                <a href="actions/objectNotGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="btn btn-danger gifted-display">
-                                    <i class="fa fa-times"></i> j'offre plus ca
+                                <a href="actions/objectNotGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="icon-bottom green gifted-display" data-toggle="tooltip" data-original-title="Ne plus offrir ce Kdo">
+                                    <i class="fa fa-gift"></i>
+
+                                    <span class="sub-icon">
+                                        <i class="fa fa-times"></i>
+                                    </span>
                                 </a>
                             <?php endif; ?>
-                        <?php endif; ?>
-
-                        <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] === $currentUser['id']) : ?>
-                            <a href="#" class="delete-obj edit-obj btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modal-edit-object-<?php echo $object['id']; ?>" data-toggle2="tooltip" data-original-title="Modifier">
-                                <i class="fa fa-pencil"></i> Modifier
-                            </a>
                         <?php endif; ?>
                     </div>
                 </div>

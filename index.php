@@ -1,24 +1,20 @@
 <?php
     include 'config.php';
     include 'functions.php';
+
+    $pageTitle = $currentTheme['title'] . (isset($currentUser) ? ' de ' . $currentUser['nom'] : '');
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title><?php echo $currentTheme['title']; ?> <?php if (isset($currentUser)) :
-?> de <?php echo $currentUser['nom']; ?> <?php
-               endif; ?></title>
+        <title><?php echo $pageTitle; ?></title>
         <link rel="icon" href="./favicon.ico" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Ma liste de Noel">
-        <?php if (isset($currentUser)) : ?>
-            <meta property="og:title" content="La liste de Noël de <?php echo $currentUser['nom']; ?>" />
-        <?php else : ?>
-            <meta property="og:title" content="Ma liste de Noël" />
-        <?php endif; ?>
-        <meta property="og:image" content="http://datcharrye.free.fr/listeKdo/img/metaOg.jpg" />
+        <meta name="description" content="<?php echo $pageTitle; ?>">
+        <meta property="og:title" content="<?php echo $pageTitle; ?>" />
+        <meta property="og:image" content="http://datcharrye.free.fr/listeKdo/img/<?php echo $currentTheme['label']; ?>/metaOg.jpg" />
         <meta property="fb:app_id" content="185139272403079" />
         <link rel="stylesheet" type="text/css" media="screen" href="<?php echo auto_version('css/front/'.$currentTheme['label'].'/front.css'); ?>">
     </head>
