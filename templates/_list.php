@@ -194,9 +194,9 @@
                     <?php endif; ?>
 
                     <?php if ('' !== $object['link']) : ?>
-                        <div class="modal-footer__link">
-                            <a target="_blank" href="<?php echo $object['link']; ?>" class="btn btn-primary btn-block"  data-toggle2="tooltip" data-original-title="Accéder au site">
-                                Accéder au site
+                        <div class="modal-footer__link text-center">
+                            <a target="_blank" href="<?php echo $object['link']; ?>" class="btn btn-primary btn-buy"  data-toggle2="tooltip" data-original-title="Voir ce KDO">
+                                Voir ce KDO
                             </a>
                         </div>
                     <?php endif; ?>

@@ -156,6 +156,13 @@ body {
     border-color: #efefef;
 }
 
+.btn-buy {
+    font-family:Bangers, cursive;
+    font-size:24px;
+    font-weight:500;
+    padding: 5px 30px;
+}
+
 .modal-header {
     font-family: 'Bangers', cursive;
     text-align: center;
@@ -503,6 +510,10 @@ textarea {
             font-size: 11px;
         }
     }
+}
+
+.notification-list .notification .comment-content {
+    font-size: 12px;
 }
 
 .form-comment-content {
