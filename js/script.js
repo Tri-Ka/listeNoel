@@ -1,6 +1,6 @@
 $('[data-toggle="popover"]').popover();
-$('[data-toggle="tooltip"]').tooltip();
-$('[data-toggle2="tooltip"]').tooltip();
+$('[data-toggle="tooltip"]').tooltip({ trigger: "hover" });
+$('[data-toggle2="tooltip"]').tooltip({ trigger: "hover" });
 
 $('[data-confirm]').on('click', function(e){
 

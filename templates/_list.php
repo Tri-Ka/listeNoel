@@ -77,6 +77,11 @@
                                         <i class="fa fa-times"></i>
                                     </span>
                                 </a>
+                            <?php else : ?>
+                                <div class="gifted-by-infos">
+                                    <span class="gifted-by-infos__title">Offert par:</span>
+                                    <div class="gifted-by-infos__avatar" style="background-image: url('uploads/<?php echo $object['gifted_by_datas']['id'] .'/'. $object['gifted_by_datas']['pictureFile']; ?>')"></div>
+                                </div>
                             <?php endif; ?>
                         <?php endif; ?>
 
@@ -167,31 +172,31 @@
                 </div>
 
                 <div class="modal-footer">
-                    <div class="panel-bottom no-pad">
-                        <div class="text-left">
-                            <?php if ('' !== $object['link']) : ?>
-                                <a target="_blank" href="<?php echo $object['link']; ?>" class="icon-bottom grey"  data-toggle2="tooltip" data-original-title="Accéder au site">
-                                    <i class="fa fa-at"></i>
-                                </a>
-                            <?php endif; ?>
-                        </div>
-
-                        <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] !== $currentUser['id']) : ?>
+                    <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] !== $currentUser['id']) : ?>
+                        <div class="modal-footer__gift">
                             <?php if (null === $object['gifted_by']) : ?>
                                 <a href="actions/objectGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="icon-bottom primary gifted-display" data-toggle="tooltip" data-original-title="Offrir ce Kdo">
                                     <i class="fa fa-gift"></i>
                                 </a>
                             <?php elseif ($object['gifted_by'] === $_SESSION['user']['id']) : ?>
                                 <a href="actions/objectNotGifted.php?id=<?php echo $object['id']; ?>&friendId=<?php echo $currentUser['code']; ?>" class="icon-bottom green gifted-display" data-toggle="tooltip" data-original-title="Ne plus offrir ce Kdo">
-                                    <i class="fa fa-gift"></i>
+                                    <i class="fa fa-check"></i>
 
                                     <span class="sub-icon">
                                         <i class="fa fa-times"></i>
                                     </span>
                                 </a>
                             <?php endif; ?>
-                        <?php endif; ?>
-                    </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ('' !== $object['link']) : ?>
+                        <div class="modal-footer__link">
+                            <a target="_blank" href="<?php echo $object['link']; ?>" class="btn btn-primary btn-block"  data-toggle2="tooltip" data-original-title="Accéder au site">
+                                Accéder au site
+                            </a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

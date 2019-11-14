@@ -79,6 +79,14 @@
             }
 
             $object['comments'] = $dbComments;
+
+            if (null != $object['gifted_by']) {
+                $dataUser = array();
+                $sqlUser = "SELECT * FROM liste_user WHERE id = '".$object['gifted_by']."'";
+                $queryUser = mysql_query($sqlUser);
+                $object['gifted_by_datas'] = mysql_fetch_assoc($queryUser);
+            }
+
             $objects[$object['id']] = $object;
         }
     }

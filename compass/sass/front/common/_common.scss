@@ -43,6 +43,8 @@ img {
     border: 3px solid #fff;
     transition: all .3s;
     position: relative;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 
     .delete-obj {
         position: absolute;
@@ -70,6 +72,9 @@ img {
 		padding: 10px;
 		background: $color-red;
 		color: #fff;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 13px;
+        text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 	}
 
 	.prix {
@@ -135,12 +140,14 @@ body {
         top: 45px;
     }
 }
+
 .panel-detail {
     padding: 15px;
     font-size: 13px;
     position: relative;
     line-height: 21px;
     padding-bottom: 30px;
+    overflow: hidden;
 }
 
 .btn-default {
@@ -158,6 +165,7 @@ body {
     color: #fff;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
 .modal-content {
@@ -781,93 +789,99 @@ input.apple-switch:checked:after {
         left: 0;
         right: 0;
     }
+}
 
-    .icon-bottom {
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        border-radius: 50%;
-        box-shadow: 0px 0px 15px #0000001c;
-        font-size: 18px;
-        color: #000;
-        position: relative;
-        margin-right: 10px;
-        background: #fff;
-        -webkit-transition: all .2s;
-        -o-transition: all .2s;
-        transition: all .2s;
+.icon-bottom {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px #0000001c;
+    font-size: 18px;
+    color: #000;
+    position: relative;
+    margin-right: 10px;
+    background: #fff;
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+
+    &:hover {
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    &.gifted-display {
+        transform: scale(1.75);
+        position: absolute;
+        right: 25px;
+        border: 2px solid #fff;
+        line-height: 38px;
+        bottom: 10px;
 
         &:hover {
-            -webkit-transform: scale(1.2);
-            -ms-transform: scale(1.2);
-            -o-transform: scale(1.2);
-            transform: scale(1.2);
-        }
+            -webkit-transform: scale(2.2);
+            -ms-transform: scale(2.2);
+            -o-transform: scale(2.2);
+            transform: scale(2.2);
+        };
+    }
 
-        &.gifted-display {
-            transform: scale(1.75);
-            position: absolute;
-            right: 25px;
-            border: 2px solid #fff;
-            line-height: 38px;
-            bottom: 10px;
+    &.primary {
+        background: $color-red;
+        color: #fff;
+    }
 
-            &:hover {
-                -webkit-transform: scale(2.2);
-                -ms-transform: scale(2.2);
-                -o-transform: scale(2.2);
-                transform: scale(2.2);
-            };
-        }
+    &.blue {
+        background: #2196F3;
+        color: #fff;
+    }
 
-        &.primary {
-            background: $color-red;
-            color: #fff;
-        }
+    &.green {
+        background: #4CAF50;
+        color: #fff;
+    }
 
-        &.blue {
-            background: #2196F3;
-            color: #fff;
-        }
-
-        &.green {
-            background: #4CAF50;
-            color: #fff;
-        }
-
-        .sub-icon {
-            position: absolute;
-            bottom: 0;
-            right: -5px;
-            background: #E23030;
-            color: #fff;
-            font-size: 10px;
-            border-radius: 15px;
-            display: inline-block;
-            text-align: center;
-            vertical-align: text-bottom;
-            padding: 0 5px;
-            height: 17px;
-            line-height: 17px;
-        }
+    .sub-icon {
+        position: absolute;
+        bottom: 0;
+        right: -5px;
+        background: #E23030;
+        color: #fff;
+        font-size: 10px;
+        border-radius: 15px;
+        display: inline-block;
+        text-align: center;
+        vertical-align: text-bottom;
+        padding: 0 5px;
+        height: 17px;
+        line-height: 17px;
     }
 }
 
+.modal-footer {
+    background: #e5e5e5;
+}
+
+.modal-footer__gift {
+    text-align: center;
+
+    .icon-bottom.gifted-display {
+        position: relative;
+        margin: 25px auto;
+        width: 40px;
+        right: auto;
+    }
+}
 
 .no-pad {
     padding: 0 !important;
 }
 
-
-.panel-bottom.no-pad {
-    text-align: center;
-
-    .icon-bottom.gifted-display {
-        position: relative;
-        margin: 20px 0;
-        width: 40px;
-        right: auto;
-    }
+body.modal-open {
+  -webkit-overflow-scrolling: auto;
 }
