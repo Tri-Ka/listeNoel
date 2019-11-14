@@ -11,7 +11,7 @@ if (!isset($_SESSION)) {
     $_pass = 'spx728';
 
     $_host = 'localhost';
-    $_db = 'projet_noel';
+    $_db = 'datcharrye';
     $_username = 'root';
     $_pass = 'root';
 

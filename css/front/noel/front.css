@@ -12521,7 +12521,7 @@ input.apple-switch:checked:after {
 
 /* line 745, ../../../compass/sass/front/common/_common.scss */
 .show-gifted .gifted-display {
-  display: block !important;
+  display: inline-block !important;
 }
 /* line 749, ../../../compass/sass/front/common/_common.scss */
 .show-gifted .panel-object.gifted {
@@ -12576,7 +12576,7 @@ input.apple-switch:checked:after {
   display: inline-block;
   width: 40px;
   height: 40px;
-  line-height: 40px;
+  line-height: 38px;
   text-align: center;
   border-radius: 50%;
   box-shadow: 0px 0px 15px #0000001c;
@@ -12584,20 +12584,23 @@ input.apple-switch:checked:after {
   color: #000;
   position: relative;
   margin-right: 10px;
-  background: #fff;
+  background-color: #fff;
   -webkit-transition: all .2s;
   -o-transition: all .2s;
   transition: all .2s;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #fff;
 }
-/* line 811, ../../../compass/sass/front/common/_common.scss */
+/* line 814, ../../../compass/sass/front/common/_common.scss */
 .icon-bottom:hover {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   -o-transform: scale(1.2);
   transform: scale(1.2);
 }
-/* line 818, ../../../compass/sass/front/common/_common.scss */
-.icon-bottom.gifted-display {
+/* line 821, ../../../compass/sass/front/common/_common.scss */
+.icon-bottom.gifted-display.gift-btn {
   transform: scale(1.75);
   position: absolute;
   right: 25px;
@@ -12605,29 +12608,29 @@ input.apple-switch:checked:after {
   line-height: 38px;
   bottom: 10px;
 }
-/* line 826, ../../../compass/sass/front/common/_common.scss */
-.icon-bottom.gifted-display:hover {
+/* line 829, ../../../compass/sass/front/common/_common.scss */
+.icon-bottom.gifted-display.gift-btn:hover {
   -webkit-transform: scale(2.2);
   -ms-transform: scale(2.2);
   -o-transform: scale(2.2);
   transform: scale(2.2);
 }
-/* line 834, ../../../compass/sass/front/common/_common.scss */
+/* line 837, ../../../compass/sass/front/common/_common.scss */
 .icon-bottom.primary {
   background: #E23030;
   color: #fff;
 }
-/* line 839, ../../../compass/sass/front/common/_common.scss */
+/* line 842, ../../../compass/sass/front/common/_common.scss */
 .icon-bottom.blue {
   background: #2196F3;
   color: #fff;
 }
-/* line 844, ../../../compass/sass/front/common/_common.scss */
+/* line 847, ../../../compass/sass/front/common/_common.scss */
 .icon-bottom.green {
   background: #4CAF50;
   color: #fff;
 }
-/* line 849, ../../../compass/sass/front/common/_common.scss */
+/* line 852, ../../../compass/sass/front/common/_common.scss */
 .icon-bottom .sub-icon {
   position: absolute;
   bottom: 0;
@@ -12644,16 +12647,16 @@ input.apple-switch:checked:after {
   line-height: 17px;
 }
 
-/* line 866, ../../../compass/sass/front/common/_common.scss */
+/* line 869, ../../../compass/sass/front/common/_common.scss */
 .modal-footer {
   background: #e5e5e5;
 }
 
-/* line 870, ../../../compass/sass/front/common/_common.scss */
+/* line 873, ../../../compass/sass/front/common/_common.scss */
 .modal-footer__gift {
   text-align: center;
 }
-/* line 873, ../../../compass/sass/front/common/_common.scss */
+/* line 876, ../../../compass/sass/front/common/_common.scss */
 .modal-footer__gift .icon-bottom.gifted-display {
   position: relative;
   margin: 25px auto;
@@ -12661,12 +12664,12 @@ input.apple-switch:checked:after {
   right: auto;
 }
 
-/* line 881, ../../../compass/sass/front/common/_common.scss */
+/* line 884, ../../../compass/sass/front/common/_common.scss */
 .no-pad {
   padding: 0 !important;
 }
 
-/* line 885, ../../../compass/sass/front/common/_common.scss */
+/* line 888, ../../../compass/sass/front/common/_common.scss */
 body.modal-open {
   -webkit-overflow-scrolling: auto;
 }
