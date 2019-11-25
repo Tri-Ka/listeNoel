@@ -952,7 +952,9 @@ body.modal-open {
                 a {
                     img {
                         height: 40px;
-                        filter: grayscale(100%);
+                        @media screen and (min-width: 767px) {
+                            filter: grayscale(100%);
+                        }
                     }
 
                     &.selected,

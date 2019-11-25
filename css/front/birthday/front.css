@@ -12745,18 +12745,23 @@ body.modal-open {
 /* line 953, ../../../compass/sass/front/common/_common.scss */
 .reaction-list .reaction-details .reaction-choices li a img {
   height: 40px;
-  filter: grayscale(100%);
 }
-/* line 960, ../../../compass/sass/front/common/_common.scss */
+@media screen and (min-width: 767px) {
+  /* line 953, ../../../compass/sass/front/common/_common.scss */
+  .reaction-list .reaction-details .reaction-choices li a img {
+    filter: grayscale(100%);
+  }
+}
+/* line 962, ../../../compass/sass/front/common/_common.scss */
 .reaction-list .reaction-details .reaction-choices li a.selected img, .reaction-list .reaction-details .reaction-choices li a:hover img {
   filter: none;
 }
-/* line 969, ../../../compass/sass/front/common/_common.scss */
+/* line 971, ../../../compass/sass/front/common/_common.scss */
 .reaction-list .react-grey {
   filter: grayscale(100%);
 }
 
-/* line 974, ../../../compass/sass/front/common/_common.scss */
+/* line 976, ../../../compass/sass/front/common/_common.scss */
 .react-avatar,
 .react-base {
   display: inline-block;
@@ -12767,7 +12772,7 @@ body.modal-open {
   border-radius: 50%;
 }
 
-/* line 984, ../../../compass/sass/front/common/_common.scss */
+/* line 986, ../../../compass/sass/front/common/_common.scss */
 .react-base {
   margin-right: 10px;
 }
