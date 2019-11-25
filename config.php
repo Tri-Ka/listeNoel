@@ -1,6 +1,6 @@
 <?php
     error_reporting(E_ALL ^ E_DEPRECATED);
-
+    // session_destroy();
 if (!isset($_SESSION)) {
     session_start();
 }

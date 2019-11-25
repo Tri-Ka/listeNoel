@@ -80,6 +80,24 @@
 
             $object['comments'] = $dbComments;
 
+            $sqlReactions = "SELECT * FROM reaction WHERE product_id = '".$object['id']."'";
+            $dataReactions = mysql_query($sqlReactions);
+            $dbReactions = array();
+
+            while ($rowReaction = mysql_fetch_assoc($dataReactions)) {
+                $sqlReactionUser = "SELECT * FROM liste_user WHERE id = '".$rowReaction['user_id']."'";
+                $dataReactionUser = mysql_query($sqlReactionUser);
+
+                $rowReaction['user'] = mysql_fetch_assoc($dataReactionUser);
+                $dbReactions[] = $rowReaction;
+            }
+
+            $object['reactions'] = array();
+
+            foreach($dbReactions as $reaction) {
+                $object['reactions'][$reaction['type']][] = $reaction;
+            }
+
             if (null != $object['gifted_by']) {
                 $dataUser = array();
                 $sqlUser = "SELECT * FROM liste_user WHERE id = '".$object['gifted_by']."'";
@@ -95,6 +113,8 @@
         $_SESSION['user']['friends'] = retrieveFriends($_SESSION['user']['id']);
         $_SESSION['user']['notifications'] = retrieveNotifications($_SESSION['user']);
     }
+
+    $_SESSION['currentUserCode'] = $userId;
 
     function retrieveNotifications($user)
     {
@@ -117,6 +137,8 @@
         $sql = "SELECT id FROM liste_noel WHERE user_id = '".$user['id']."'";
         $datas = mysql_query($sql);
 
+        $productUserIds = array();
+
         while ($row = mysql_fetch_assoc($datas)) {
             $productUserIds[] = $row['id'];
         }
@@ -134,48 +156,54 @@
             $moreSql = " OR (author_id != '".$user['id']."' AND author_id IN (".implode(', ', array_values($friendUserIds)).") AND type = 1 AND product_id IN (".implode(', ', array_values($productFriendIds)).")) ";
         }
 
-        $sql = "SELECT * FROM notification
-        WHERE (author_id != '".$user['id']."' AND product_id IN (".implode(', ', array_values($productUserIds))."))
-        OR (author_id != '".$user['id']."' AND author_id IN (".implode(', ', array_values($friendUserIds)).") AND type = 2)
-        ".$moreSql."
-        ORDER BY created_at DESC";
+        $sql = "SELECT * FROM notification WHERE ";
+
+        if (0 < count($productUserIds)) {
+            $sql .= " (author_id != '".$user['id']."' AND product_id IN (".implode(', ', array_values($productUserIds)).")) OR ";
+        }
+        
+        $sql .= " (author_id != '".$user['id']."' AND author_id IN (".implode(', ', array_values($friendUserIds)).") AND type = 2) ";
+        $sql .= $moreSql;
+        $sql .= " ORDER BY created_at DESC ";
 
         $datas = mysql_query($sql);
 
-        while ($row = mysql_fetch_assoc($datas)) {
-            $sqlNotifUser = "SELECT * FROM liste_user WHERE id = '".$row['author_id']."'";
-            $dataNotifUser = mysql_query($sqlNotifUser);
-            $row['user'] = mysql_fetch_assoc($dataNotifUser);
+        if ($datas) {
+            while ($row = mysql_fetch_assoc($datas)) {
+                $sqlNotifUser = "SELECT * FROM liste_user WHERE id = '".$row['author_id']."'";
+                $dataNotifUser = mysql_query($sqlNotifUser);
+                $row['user'] = mysql_fetch_assoc($dataNotifUser);
 
-            $sqlNotifProduct = "SELECT * FROM liste_noel WHERE id = '".$row['product_id']."'";
-            $dataNotifProduct = mysql_query($sqlNotifProduct);
-            $row['product'] = mysql_fetch_assoc($dataNotifProduct);
+                $sqlNotifProduct = "SELECT * FROM liste_noel WHERE id = '".$row['product_id']."'";
+                $dataNotifProduct = mysql_query($sqlNotifProduct);
+                $row['product'] = mysql_fetch_assoc($dataNotifProduct);
 
-            $sqlNotifProductUser = "SELECT * FROM liste_user WHERE id = '".$row['product']['user_id']."'";
-            $dataNotifProductUser = mysql_query($sqlNotifProductUser);
-            $row['product_user'] = mysql_fetch_assoc($dataNotifProductUser);
+                $sqlNotifProductUser = "SELECT * FROM liste_user WHERE id = '".$row['product']['user_id']."'";
+                $dataNotifProductUser = mysql_query($sqlNotifProductUser);
+                $row['product_user'] = mysql_fetch_assoc($dataNotifProductUser);
 
-            $row['new'] = false;
+                $row['new'] = false;
 
-            if (null === $_SESSION['user']['last_seen_notif'] || strtotime($row['created_at']) > strtotime($_SESSION['user']['last_seen_notif'])) {
-                $row['new'] = true;
+                if (null === $_SESSION['user']['last_seen_notif'] || strtotime($row['created_at']) > strtotime($_SESSION['user']['last_seen_notif'])) {
+                    $row['new'] = true;
+                }
+
+                $d1 = date('Y-m-d H:i:s');
+                $d2 = $row['created_at'];
+                $diff = cc2_date_diff($d1, $d2);
+
+                if (0 !== $diff['d']) {
+                    $row['timePassed'] = $diff['d'].' j';
+                } elseif (0 !== $diff['h']) {
+                    $row['timePassed'] = $diff['h'].' h';
+                } elseif (0 !== $diff['m']) {
+                    $row['timePassed'] = $diff['m'].' min';
+                } elseif (0 !== $diff['s']) {
+                    $row['timePassed'] = $diff['s'].' sec';
+                }
+
+                $notifications[] = $row;
             }
-
-            $d1 = date('Y-m-d H:i:s');
-            $d2 = $row['created_at'];
-            $diff = cc2_date_diff($d1, $d2);
-
-            if (0 !== $diff['d']) {
-                $row['timePassed'] = $diff['d'].' j';
-            } elseif (0 !== $diff['h']) {
-                $row['timePassed'] = $diff['h'].' h';
-            } elseif (0 !== $diff['m']) {
-                $row['timePassed'] = $diff['m'].' min';
-            } elseif (0 !== $diff['s']) {
-                $row['timePassed'] = $diff['s'].' sec';
-            }
-
-            $notifications[] = $row;
         }
 
         return $notifications;

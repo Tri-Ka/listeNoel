@@ -121,3 +121,15 @@ $('[data-switch-gifted]').on('change', function(e){
 });
 
 autosize($('textarea'));
+
+$('html').on('click', function(){
+    $('.reaction-details').hide();
+})
+
+$('[data-reaction-list]').on('mouseenter click', function(){
+    $(this).find('.reaction-details').show();
+})
+
+$('.grid-item').on('mouseleave', function(){
+    $(this).find('.reaction-details').hide();
+})

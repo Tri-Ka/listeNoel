@@ -43,15 +43,17 @@
                         </a>
                     <?php endif; ?>
 
-                    <div class="panel-detail">
-                        <p>
-                            <?php echo nl2br(substr($object['description'], 0, 300)); ?>
+                    <?php if (null !== $object['description'] && '' !== trim($object['description'])) : ?>
+                        <div class="panel-detail">
+                            <p>
+                                <?php echo nl2br(substr($object['description'], 0, 300)); ?>
 
-                            <?php if (300 < strlen($object['description'])) : ?>
-                                [...]
-                            <?php endif; ?>
-                        </p>
-                    </div>
+                                <?php if (300 < strlen($object['description'])) : ?>
+                                    [...]
+                                <?php endif; ?>
+                            </p>
+                        </div>
+                    <?php endif; ?>
 
                     <div class="panel-bottom carded">
                         <a href="#" data-toggle="modal" data-target="#object-<?php echo $object['id']; ?>" class="icon-bottom" data-toggle2="tooltip" data-original-title="Commentaires">
@@ -66,7 +68,7 @@
 
                         <?php if ('' !== $object['link']) : ?>
                             <a target="_blank" href="<?php echo $object['link']; ?>" class="icon-bottom"  data-toggle2="tooltip" data-original-title="Accéder au site">
-                                <i class="fa fa-at"></i>
+                                <i class="fa fa-shopping-cart"></i>
                             </a>
                         <?php endif; ?>
 
@@ -93,6 +95,51 @@
                                 </a>
                             <?php endif; ?>
                         <?php endif; ?>
+                        
+                        <div data-reaction-list class="reaction-list">
+                            <?php foreach($object['reactions'] as $k => $reaction): ?>
+                                <div class="reaction">
+                                    <img src="img/reaction/<?php echo $k; ?>.png" alt="">
+                                    <span><?php echo count($object['reactions'][$k]); ?></span>
+                                </div>
+                            <?php endforeach; ?>
+
+                            <?php if (isset($_SESSION['user'])): ?>
+                                <?php if (0 === count($object['reactions'])): ?>
+                                    <div class="reaction react-grey">
+                                        <img src="img/reaction/3.png" alt="">
+                                    </div>
+                                <?php endif; ?>
+
+                                <div class="reaction-details" style="">
+                                    <ul class="reaction-choices">
+                                        <li>
+                                            <a href="actions/addReaction.php?object=<?php echo $object['id']; ?>&value=3">
+                                                <img src="img/reaction/3.png" alt="">
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="actions/addReaction.php?object=<?php echo $object['id']; ?>&value=1">
+                                                <img src="img/reaction/1.png" alt="">
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="actions/addReaction.php?object=<?php echo $object['id']; ?>&value=4">
+                                                <img src="img/reaction/4.png" alt="">
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="actions/addReaction.php?object=<?php echo $object['id']; ?>&value=2">
+                                                <img src="img/reaction/2.png" alt="">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -121,13 +168,25 @@
                             </div>
                         <?php endif; ?>
 
-                        <?php if ('' != $object['description']) : ?>
+                        <?php if (null !== $object['description'] && '' !== trim($object['description'])) : ?>
                             <div class="col-xs-12">
                                 <p>
                                     <?php echo nl2br($object['description']); ?>
                                 </p>
                             </div>
                         <?php endif; ?>
+
+                        <div class="col-xs-12">
+                            <?php foreach($object['reactions'] as $k => $reaction): ?>
+                                <div class="reaction">
+                                    <div class="react-base" style="background-image: url(img/reaction/<?php echo $k; ?>.png)"></div>
+                                    
+                                    <?php foreach($reaction as $react): ?>
+                                        <div class="react-avatar" data-toggle="tooltip" data-original-title="<?php echo $react['user']['nom']; ?>" style="background-image: url('uploads/<?php echo $react['user']['id'] .'/'. $react['user']['pictureFile']; ?>')"></div>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
 
                         <div class="col-xs-12">
                             <div class="comments" data-comments>

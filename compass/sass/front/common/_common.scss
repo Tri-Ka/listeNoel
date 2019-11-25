@@ -352,6 +352,8 @@ span.share-url {
 }
 
 .img-container {
+    display: block;
+    
     img {
         width: 100%;
     }
@@ -898,4 +900,87 @@ input.apple-switch:checked:after {
 
 body.modal-open {
   -webkit-overflow-scrolling: auto;
+}
+
+.reaction-list {
+    display: inline-block;
+
+    .reaction {
+        display: inline-block;
+        position: relative;
+
+        img {
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid #fff;
+            background: #fff;
+        }
+
+        span {
+            position: absolute;
+            background: #fff;
+            border-radius: 50px;
+            padding: 0 5px;
+            font-size: 10px;
+            bottom: -5px;
+            z-index: 10;
+            right: -5px;
+        }
+    }
+
+    .reaction-details {
+        position: absolute;
+        z-index: 10;
+        background: #fff;
+        padding: 10px 15px;
+        border-radius: 70px;
+        box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.15);
+        top: -55px;
+        margin-left: -50px;
+        width: 200px;
+        display: none;
+        text-align: center;
+
+        .reaction-choices {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            
+            li {
+                display: inline-block;
+                
+                a {
+                    img {
+                        height: 40px;
+                        filter: grayscale(100%);
+                    }
+
+                    &.selected,
+                    &:hover {
+                        img {
+                            filter: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .react-grey {
+        filter: grayscale(100%);
+    }
+}
+
+.react-avatar,
+.react-base {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.react-base {
+    margin-right: 10px;
 }

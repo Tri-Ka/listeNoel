@@ -12095,17 +12095,21 @@ span.share-url {
   cursor: text;
 }
 
-/* line 355, ../../../compass/sass/front/common/_common.scss */
+/* line 354, ../../../compass/sass/front/common/_common.scss */
+.img-container {
+  display: block;
+}
+/* line 357, ../../../compass/sass/front/common/_common.scss */
 .img-container img {
   width: 100%;
 }
 
-/* line 360, ../../../compass/sass/front/common/_common.scss */
+/* line 362, ../../../compass/sass/front/common/_common.scss */
 textarea {
   width: 100% !important;
 }
 
-/* line 364, ../../../compass/sass/front/common/_common.scss */
+/* line 366, ../../../compass/sass/front/common/_common.scss */
 .fb-comments-object {
   position: relative !important;
   width: 100% !important;
@@ -12116,44 +12120,44 @@ textarea {
   overflow: initial;
 }
 
-/* line 375, ../../../compass/sass/front/common/_common.scss */
+/* line 377, ../../../compass/sass/front/common/_common.scss */
 .modal-object p {
   padding: 20px;
   background: #efefef;
   line-height: 25px;
   border-radius: 15px;
 }
-/* line 382, ../../../compass/sass/front/common/_common.scss */
+/* line 384, ../../../compass/sass/front/common/_common.scss */
 .modal-object img {
   border: 5px solid #fff;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* line 388, ../../../compass/sass/front/common/_common.scss */
+/* line 390, ../../../compass/sass/front/common/_common.scss */
 .fb_iframe_widget span,
 .fb_iframe_widget span iframe {
   width: 100% !important;
 }
 
-/* line 393, ../../../compass/sass/front/common/_common.scss */
+/* line 395, ../../../compass/sass/front/common/_common.scss */
 .info-comment {
   position: absolute;
   bottom: 20px;
   left: 10px;
 }
-/* line 398, ../../../compass/sass/front/common/_common.scss */
+/* line 400, ../../../compass/sass/front/common/_common.scss */
 .info-comment i {
   font-size: 20px;
 }
 
-/* line 403, ../../../compass/sass/front/common/_common.scss */
+/* line 405, ../../../compass/sass/front/common/_common.scss */
 .btn-danger {
   color: #fff;
   background-color: #F44336;
   border-color: #F44336;
 }
 
-/* line 409, ../../../compass/sass/front/common/_common.scss */
+/* line 411, ../../../compass/sass/front/common/_common.scss */
 .close {
   position: absolute;
   top: 15px;
@@ -12161,19 +12165,19 @@ textarea {
 }
 
 @media screen and (min-width: 767px) {
-  /* line 416, ../../../compass/sass/front/common/_common.scss */
+  /* line 418, ../../../compass/sass/front/common/_common.scss */
   .link-img-input {
     width: 45%;
     float: left;
   }
 
-  /* line 421, ../../../compass/sass/front/common/_common.scss */
+  /* line 423, ../../../compass/sass/front/common/_common.scss */
   .link-file-input {
     width: 45%;
     float: right;
   }
 
-  /* line 426, ../../../compass/sass/front/common/_common.scss */
+  /* line 428, ../../../compass/sass/front/common/_common.scss */
   .or-div {
     float: left;
     width: 10%;
@@ -12181,40 +12185,40 @@ textarea {
   }
 }
 @media screen and (max-width: 767px) {
-  /* line 434, ../../../compass/sass/front/common/_common.scss */
+  /* line 436, ../../../compass/sass/front/common/_common.scss */
   .full-xs {
     width: 100%;
   }
 
-  /* line 438, ../../../compass/sass/front/common/_common.scss */
+  /* line 440, ../../../compass/sass/front/common/_common.scss */
   .no-log {
     margin-bottom: 10px;
   }
 
-  /* line 442, ../../../compass/sass/front/common/_common.scss */
+  /* line 444, ../../../compass/sass/front/common/_common.scss */
   .right-panel .fb_iframe_widget_fluid {
     display: inline !important;
   }
 
-  /* line 447, ../../../compass/sass/front/common/_common.scss */
+  /* line 449, ../../../compass/sass/front/common/_common.scss */
   .modal-object .btn {
     display: block;
     margin: 0 !important;
     margin-bottom: 10px !important;
   }
 
-  /* line 454, ../../../compass/sass/front/common/_common.scss */
+  /* line 456, ../../../compass/sass/front/common/_common.scss */
   .info-comment {
     transform: scale(0.8);
   }
 }
-/* line 459, ../../../compass/sass/front/common/_common.scss */
+/* line 461, ../../../compass/sass/front/common/_common.scss */
 .comments-list,
 .notification-list {
   margin: 0;
   padding: 0;
 }
-/* line 464, ../../../compass/sass/front/common/_common.scss */
+/* line 466, ../../../compass/sass/front/common/_common.scss */
 .comments-list .comment,
 .comments-list .notification,
 .notification-list .comment,
@@ -12225,7 +12229,7 @@ textarea {
   float: left;
   width: 100%;
 }
-/* line 472, ../../../compass/sass/front/common/_common.scss */
+/* line 474, ../../../compass/sass/front/common/_common.scss */
 .comments-list .comment .comment-avatar,
 .comments-list .notification .comment-avatar,
 .notification-list .comment .comment-avatar,
@@ -12239,7 +12243,7 @@ textarea {
   float: left;
   margin-right: 15px;
 }
-/* line 483, ../../../compass/sass/front/common/_common.scss */
+/* line 485, ../../../compass/sass/front/common/_common.scss */
 .comments-list .comment .comment-content,
 .comments-list .notification .comment-content,
 .notification-list .comment .comment-content,
@@ -12251,7 +12255,7 @@ textarea {
   border-radius: 30px;
   position: relative;
 }
-/* line 492, ../../../compass/sass/front/common/_common.scss */
+/* line 494, ../../../compass/sass/front/common/_common.scss */
 .comments-list .comment .comment-user,
 .comments-list .notification .comment-user,
 .notification-list .comment .comment-user,
@@ -12259,7 +12263,7 @@ textarea {
   font-weight: bold;
   margin-right: 4px;
 }
-/* line 497, ../../../compass/sass/front/common/_common.scss */
+/* line 499, ../../../compass/sass/front/common/_common.scss */
 .comments-list .comment .delete-comment,
 .comments-list .notification .delete-comment,
 .notification-list .comment .delete-comment,
@@ -12279,19 +12283,19 @@ textarea {
   font-size: 11px;
 }
 
-/* line 515, ../../../compass/sass/front/common/_common.scss */
+/* line 517, ../../../compass/sass/front/common/_common.scss */
 .notification-list .notification .comment-content {
   font-size: 12px;
 }
 
-/* line 519, ../../../compass/sass/front/common/_common.scss */
+/* line 521, ../../../compass/sass/front/common/_common.scss */
 .form-comment-content {
   position: relative;
   margin-top: 15px;
   float: left;
   width: 100%;
 }
-/* line 525, ../../../compass/sass/front/common/_common.scss */
+/* line 527, ../../../compass/sass/front/common/_common.scss */
 .form-comment-content .comment-avatar {
   display: inline-block;
   width: 40px;
@@ -12302,7 +12306,7 @@ textarea {
   float: left;
   margin-right: 15px;
 }
-/* line 536, ../../../compass/sass/front/common/_common.scss */
+/* line 538, ../../../compass/sass/front/common/_common.scss */
 .form-comment-content .comment-form-content {
   float: left;
   width: calc(100% - 55px) !important;
@@ -12315,7 +12319,7 @@ textarea {
   position: relative;
   overflow-y: scroll;
 }
-/* line 549, ../../../compass/sass/front/common/_common.scss */
+/* line 551, ../../../compass/sass/front/common/_common.scss */
 .form-comment-content .btn {
   position: absolute;
   bottom: 2px;
@@ -12328,7 +12332,7 @@ textarea {
   z-index: 10;
 }
 
-/* line 562, ../../../compass/sass/front/common/_common.scss */
+/* line 564, ../../../compass/sass/front/common/_common.scss */
 .help-block {
   display: block;
   margin-top: 5px;
@@ -12342,7 +12346,7 @@ textarea {
   clear: both;
 }
 
-/* line 575, ../../../compass/sass/front/common/_common.scss */
+/* line 577, ../../../compass/sass/front/common/_common.scss */
 .comments-count {
   background: #2196F3;
   color: #fff;
@@ -12355,7 +12359,7 @@ textarea {
   vertical-align: text-bottom;
 }
 
-/* line 587, ../../../compass/sass/front/common/_common.scss */
+/* line 589, ../../../compass/sass/front/common/_common.scss */
 .notifications {
   position: fixed;
   top: 0;
@@ -12369,17 +12373,17 @@ textarea {
   margin-right: -340px;
   transition: all .2s;
 }
-/* line 600, ../../../compass/sass/front/common/_common.scss */
+/* line 602, ../../../compass/sass/front/common/_common.scss */
 .notifications.opened {
   margin-right: -15px;
 }
-/* line 604, ../../../compass/sass/front/common/_common.scss */
+/* line 606, ../../../compass/sass/front/common/_common.scss */
 .notifications .notification-list {
   overflow-y: scroll;
   height: 100vh;
   -webkit-overflow-scrolling: touch;
 }
-/* line 610, ../../../compass/sass/front/common/_common.scss */
+/* line 612, ../../../compass/sass/front/common/_common.scss */
 .notifications .toggle-notif {
   position: absolute;
   left: -55px;
@@ -12395,7 +12399,7 @@ textarea {
   border: 2px solid #fff;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
 }
-/* line 625, ../../../compass/sass/front/common/_common.scss */
+/* line 627, ../../../compass/sass/front/common/_common.scss */
 .notifications .toggle-notif .notif-number {
   position: absolute;
   font-size: 10px;
@@ -12408,21 +12412,21 @@ textarea {
   right: -5px;
   text-align: center;
 }
-/* line 639, ../../../compass/sass/front/common/_common.scss */
+/* line 641, ../../../compass/sass/front/common/_common.scss */
 .notifications .notification {
   padding: 10px;
   border-bottom: 1px solid #efefef;
   background: #fff;
 }
-/* line 644, ../../../compass/sass/front/common/_common.scss */
+/* line 646, ../../../compass/sass/front/common/_common.scss */
 .notifications .notification.new {
   background: #2196F3;
 }
-/* line 647, ../../../compass/sass/front/common/_common.scss */
+/* line 649, ../../../compass/sass/front/common/_common.scss */
 .notifications .notification.new .notif-date {
   color: #fff;
 }
-/* line 652, ../../../compass/sass/front/common/_common.scss */
+/* line 654, ../../../compass/sass/front/common/_common.scss */
 .notifications .notification a {
   color: #000;
   display: block;
@@ -12430,7 +12434,7 @@ textarea {
   width: 100%;
   text-decoration: none;
 }
-/* line 660, ../../../compass/sass/front/common/_common.scss */
+/* line 662, ../../../compass/sass/front/common/_common.scss */
 .notifications .notification .notif-date {
   font-size: 9px;
   text-align: right;
@@ -12441,13 +12445,13 @@ textarea {
   font-style: italic;
 }
 
-/* line 672, ../../../compass/sass/front/common/_common.scss */
+/* line 674, ../../../compass/sass/front/common/_common.scss */
 .info-comment {
   color: #000;
   text-decoration: none !important;
 }
 
-/* line 677, ../../../compass/sass/front/common/_common.scss */
+/* line 679, ../../../compass/sass/front/common/_common.scss */
 .input-link-share {
   display: inline-block;
   border-radius: 4px;
@@ -12464,7 +12468,7 @@ textarea {
   max-width: 100%;
 }
 
-/* line 693, ../../../compass/sass/front/common/_common.scss */
+/* line 695, ../../../compass/sass/front/common/_common.scss */
 input.apple-switch {
   position: relative;
   appearance: none;
@@ -12482,7 +12486,7 @@ input.apple-switch {
   margin-left: 5px;
 }
 
-/* line 710, ../../../compass/sass/front/common/_common.scss */
+/* line 712, ../../../compass/sass/front/common/_common.scss */
 input.apple-switch:after {
   content: "";
   position: absolute;
@@ -12496,18 +12500,18 @@ input.apple-switch:after {
   transition-duration: 500ms;
 }
 
-/* line 723, ../../../compass/sass/front/common/_common.scss */
+/* line 725, ../../../compass/sass/front/common/_common.scss */
 input.apple-switch:checked {
   background: #2196F3;
 }
 
-/* line 727, ../../../compass/sass/front/common/_common.scss */
+/* line 729, ../../../compass/sass/front/common/_common.scss */
 input.apple-switch:checked:after {
   left: 20px;
   box-shadow: -2px 4px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* line 732, ../../../compass/sass/front/common/_common.scss */
+/* line 734, ../../../compass/sass/front/common/_common.scss */
 .box-check-display {
   position: fixed;
   top: 20px;
@@ -12522,42 +12526,42 @@ input.apple-switch:checked:after {
   height: 40px;
   line-height: 40px;
 }
-/* line 746, ../../../compass/sass/front/common/_common.scss */
+/* line 748, ../../../compass/sass/front/common/_common.scss */
 .box-check-display label {
   margin: 0;
 }
 
-/* line 751, ../../../compass/sass/front/common/_common.scss */
+/* line 753, ../../../compass/sass/front/common/_common.scss */
 .gifted-display {
   display: none !important;
 }
 
-/* line 756, ../../../compass/sass/front/common/_common.scss */
+/* line 758, ../../../compass/sass/front/common/_common.scss */
 .show-gifted .gifted-display {
   display: inline-block !important;
 }
-/* line 760, ../../../compass/sass/front/common/_common.scss */
+/* line 762, ../../../compass/sass/front/common/_common.scss */
 .show-gifted .panel-object.gifted {
   opacity: 0.5;
   transition: opacity .3s;
 }
-/* line 764, ../../../compass/sass/front/common/_common.scss */
+/* line 766, ../../../compass/sass/front/common/_common.scss */
 .show-gifted .panel-object.gifted:hover {
   opacity: 1;
 }
 
 @media screen and (max-width: 768px) {
-  /* line 771, ../../../compass/sass/front/common/_common.scss */
+  /* line 773, ../../../compass/sass/front/common/_common.scss */
   .notifications {
     width: 80vw;
     margin-right: -80vw;
   }
-  /* line 775, ../../../compass/sass/front/common/_common.scss */
+  /* line 777, ../../../compass/sass/front/common/_common.scss */
   .notifications.opened {
     margin-right: 0px;
   }
 
-  /* line 780, ../../../compass/sass/front/common/_common.scss */
+  /* line 782, ../../../compass/sass/front/common/_common.scss */
   .box-check-display {
     top: 10px;
     left: 15px;
@@ -12567,16 +12571,16 @@ input.apple-switch:checked:after {
     font-size: 9px;
   }
 
-  /* line 789, ../../../compass/sass/front/common/_common.scss */
+  /* line 791, ../../../compass/sass/front/common/_common.scss */
   .notifications .toggle-notif {
     top: 10px;
   }
 }
-/* line 794, ../../../compass/sass/front/common/_common.scss */
+/* line 796, ../../../compass/sass/front/common/_common.scss */
 .panel-bottom {
   padding: 10px 15px;
 }
-/* line 797, ../../../compass/sass/front/common/_common.scss */
+/* line 799, ../../../compass/sass/front/common/_common.scss */
 .panel-bottom.carded {
   position: absolute;
   bottom: -30px;
@@ -12584,7 +12588,7 @@ input.apple-switch:checked:after {
   right: 0;
 }
 
-/* line 805, ../../../compass/sass/front/common/_common.scss */
+/* line 807, ../../../compass/sass/front/common/_common.scss */
 .icon-bottom {
   display: inline-block;
   width: 40px;
@@ -12605,14 +12609,14 @@ input.apple-switch:checked:after {
   background-position: center;
   border: 2px solid #fff;
 }
-/* line 825, ../../../compass/sass/front/common/_common.scss */
+/* line 827, ../../../compass/sass/front/common/_common.scss */
 .icon-bottom:hover {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   -o-transform: scale(1.2);
   transform: scale(1.2);
 }
-/* line 832, ../../../compass/sass/front/common/_common.scss */
+/* line 834, ../../../compass/sass/front/common/_common.scss */
 .icon-bottom.gifted-display.gift-btn {
   transform: scale(1.75);
   position: absolute;
@@ -12621,29 +12625,29 @@ input.apple-switch:checked:after {
   line-height: 38px;
   bottom: 10px;
 }
-/* line 840, ../../../compass/sass/front/common/_common.scss */
+/* line 842, ../../../compass/sass/front/common/_common.scss */
 .icon-bottom.gifted-display.gift-btn:hover {
   -webkit-transform: scale(2.2);
   -ms-transform: scale(2.2);
   -o-transform: scale(2.2);
   transform: scale(2.2);
 }
-/* line 848, ../../../compass/sass/front/common/_common.scss */
+/* line 850, ../../../compass/sass/front/common/_common.scss */
 .icon-bottom.primary {
   background: #2196F3;
   color: #fff;
 }
-/* line 853, ../../../compass/sass/front/common/_common.scss */
+/* line 855, ../../../compass/sass/front/common/_common.scss */
 .icon-bottom.blue {
   background: #2196F3;
   color: #fff;
 }
-/* line 858, ../../../compass/sass/front/common/_common.scss */
+/* line 860, ../../../compass/sass/front/common/_common.scss */
 .icon-bottom.green {
   background: #4CAF50;
   color: #fff;
 }
-/* line 863, ../../../compass/sass/front/common/_common.scss */
+/* line 865, ../../../compass/sass/front/common/_common.scss */
 .icon-bottom .sub-icon {
   position: absolute;
   bottom: 0;
@@ -12660,16 +12664,16 @@ input.apple-switch:checked:after {
   line-height: 17px;
 }
 
-/* line 880, ../../../compass/sass/front/common/_common.scss */
+/* line 882, ../../../compass/sass/front/common/_common.scss */
 .modal-footer {
   background: #e5e5e5;
 }
 
-/* line 884, ../../../compass/sass/front/common/_common.scss */
+/* line 886, ../../../compass/sass/front/common/_common.scss */
 .modal-footer__gift {
   text-align: center;
 }
-/* line 887, ../../../compass/sass/front/common/_common.scss */
+/* line 889, ../../../compass/sass/front/common/_common.scss */
 .modal-footer__gift .icon-bottom.gifted-display {
   position: relative;
   margin: 25px auto;
@@ -12677,14 +12681,95 @@ input.apple-switch:checked:after {
   right: auto;
 }
 
-/* line 895, ../../../compass/sass/front/common/_common.scss */
+/* line 897, ../../../compass/sass/front/common/_common.scss */
 .no-pad {
   padding: 0 !important;
 }
 
-/* line 899, ../../../compass/sass/front/common/_common.scss */
+/* line 901, ../../../compass/sass/front/common/_common.scss */
 body.modal-open {
   -webkit-overflow-scrolling: auto;
+}
+
+/* line 905, ../../../compass/sass/front/common/_common.scss */
+.reaction-list {
+  display: inline-block;
+}
+/* line 908, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction {
+  display: inline-block;
+  position: relative;
+}
+/* line 912, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction img {
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background: #fff;
+}
+/* line 919, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction span {
+  position: absolute;
+  background: #fff;
+  border-radius: 50px;
+  padding: 0 5px;
+  font-size: 10px;
+  bottom: -5px;
+  z-index: 10;
+  right: -5px;
+}
+/* line 931, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction-details {
+  position: absolute;
+  z-index: 10;
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 70px;
+  box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.15);
+  top: -55px;
+  margin-left: -50px;
+  width: 200px;
+  display: none;
+  text-align: center;
+}
+/* line 944, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction-details .reaction-choices {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* line 949, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction-details .reaction-choices li {
+  display: inline-block;
+}
+/* line 953, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction-details .reaction-choices li a img {
+  height: 40px;
+  filter: grayscale(100%);
+}
+/* line 960, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction-details .reaction-choices li a.selected img, .reaction-list .reaction-details .reaction-choices li a:hover img {
+  filter: none;
+}
+/* line 969, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .react-grey {
+  filter: grayscale(100%);
+}
+
+/* line 974, ../../../compass/sass/front/common/_common.scss */
+.react-avatar,
+.react-base {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+/* line 984, ../../../compass/sass/front/common/_common.scss */
+.react-base {
+  margin-right: 10px;
 }
 
 /* line 8, ../../../compass/sass/front/birthday/front.scss */

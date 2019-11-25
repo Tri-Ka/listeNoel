@@ -16,18 +16,18 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="description">Photo *</label>
-                                <input type="file" class="form-control" name="pictureFile" placeholder="fichier" required="required">
+                                <label for="description">Photo</label>
+                                <input type="file" class="form-control" name="pictureFile" placeholder="fichier">
                             </div>
 
                             <div class="form-group">
-                                <label for="description">Mot de passe *</label>
-                                <input type="password" class="form-control" name="password" placeholder="Mot de passe" required="required">
+                                <label for="description">Mot de passe</label>
+                                <input type="password" class="form-control" name="password" placeholder="Mot de passe"  autocomplete="new-password">
                             </div>
 
                             <div class="form-group">
-                                <label for="description">Répeter le mot de passe *</label>
-                                <input type="password" class="form-control" name="re-password" placeholder="Répeter le mot de passe" required="required">
+                                <label for="description">Répeter le mot de passe</label>
+                                <input type="password" class="form-control" name="re-password" placeholder="Répeter le mot de passe"  autocomplete="new-password">
                             </div>
 
                             <p>* champs obligatoires</p>

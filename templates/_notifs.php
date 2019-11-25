@@ -20,6 +20,8 @@
                                     <?php endif; ?>
                                 <?php elseif (2 == $notification['type']) : ?>
                                     <span class="comment-user"><?php echo $notification['user']['nom']; ?></span> a ajouté une nouvelle idée !
+                                <?php elseif (3 == $notification['type']) : ?>
+                                    <span class="comment-user"><?php echo $notification['user']['nom']; ?></span> a réagit à une idée !
                                 <?php endif; ?>
                             </div>
 
