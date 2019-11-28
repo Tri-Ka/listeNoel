@@ -8,6 +8,28 @@ $userId = $_SESSION['user']['id'];
 deleteReaction($object, $userId);
 addReaction($object, $userId, $value);
 
+$sqlReactions = "SELECT * FROM reaction WHERE product_id = '".$object."'";
+$dataReactions = mysql_query($sqlReactions);
+$dbReactions = array();
+
+while ($rowReaction = mysql_fetch_assoc($dataReactions)) {
+    $sqlReactionUser = "SELECT * FROM liste_user WHERE id = '".$rowReaction['user_id']."'";
+    $dataReactionUser = mysql_query($sqlReactionUser);
+
+    $rowReaction['user'] = mysql_fetch_assoc($dataReactionUser);
+    $dbReactions[] = $rowReaction;
+}
+
+$objectId = $object;
+$object = array();
+
+$object['id'] = $objectId;
+$object['reactions'] = array();
+
+foreach($dbReactions as $reaction) {
+    $object['reactions'][$reaction['type']][] = $reaction;
+}
+
 function deleteReaction($objectId, $userId)
 {
     $sql = "DELETE FROM reaction WHERE product_id = '".$objectId."' AND user_id = '".$userId."'";
@@ -42,5 +64,35 @@ function mysql_insert($table, $inserts)
     return mysql_query($query);
 }
 
-header('Location: ../index.php?user='.$_SESSION['currentUserCode']);
 ?>
+
+<a href="#" data-reaction-list class="reaction-list">
+    <?php foreach($object['reactions'] as $k => $reaction): ?>
+        <div class="reaction">
+            <img src="img/reaction/<?php echo $k; ?>.png" alt="">
+            <span><?php echo count($object['reactions'][$k]); ?></span>
+        </div>
+    <?php endforeach; ?>
+
+    <?php if (isset($_SESSION['user'])): ?>
+        <?php if (0 === count($object['reactions'])): ?>
+            <div class="reaction react-grey">
+                <img src="img/reaction/2.png" alt="">
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
+</a>
+
+<?php if (isset($_SESSION['user'])): ?>
+    <div data-reaction-detail class="reaction-details" style="">
+        <ul class="reaction-choices">
+            <?php for ($i = 1; $i < 6; $i++): ?>
+                <li>
+                    <a data-add-reaction href="actions/addReaction.php?object=<?php echo $object['id']; ?>&value=<?php echo $i; ?>">
+                        <img src="img/reaction/<?php echo $i; ?>.png" alt="">
+                    </a>
+                </li>
+            <?php endfor; ?>
+        </ul>
+    </div>
+<?php endif; ?>

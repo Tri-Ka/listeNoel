@@ -1,6 +1,13 @@
 <?php
     include 'config.php';
 
+    if (isset($_COOKIE['listeKdoUserCode'])) {
+        if (retrieveUser($_COOKIE['listeKdoUserCode'])) {
+            $_SESSION['user'] = retrieveUser($_COOKIE['listeKdoUserCode']);
+            setcookie('listeKdoUserCode', $_SESSION['user']['code'], time()+31556926 ,'/');
+        }
+    }
+
     $userId = null;
     $currentUser = null;
     $currentTheme = array(
@@ -164,7 +171,7 @@
         
         $sql .= " (author_id != '".$user['id']."' AND author_id IN (".implode(', ', array_values($friendUserIds)).") AND type = 2) ";
         $sql .= $moreSql;
-        $sql .= " ORDER BY created_at DESC ";
+        $sql .= " ORDER BY created_at DESC LIMIT 30";
 
         $datas = mysql_query($sql);
 

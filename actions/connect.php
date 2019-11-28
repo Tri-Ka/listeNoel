@@ -8,6 +8,7 @@
 
     if ($user) {
         $_SESSION['user'] = $user;
+        setcookie('listeKdoUserCode', $user['code'], time()+31556926 ,'/');
 
         header('Location: ../index.php?user='.$user['code']);
         exit;

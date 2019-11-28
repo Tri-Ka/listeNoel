@@ -96,46 +96,34 @@
                             <?php endif; ?>
                         <?php endif; ?>
                         
-                        <div data-reaction-list class="reaction-list">
-                            <?php foreach($object['reactions'] as $k => $reaction): ?>
-                                <div class="reaction">
-                                    <img src="img/reaction/<?php echo $k; ?>.png" alt="">
-                                    <span><?php echo count($object['reactions'][$k]); ?></span>
-                                </div>
-                            <?php endforeach; ?>
+                        <div class="reaction-list-container">
+                            <a href="#" data-reaction-list class="reaction-list">
+                                <?php foreach($object['reactions'] as $k => $reaction): ?>
+                                    <div class="reaction">
+                                        <img src="img/reaction/<?php echo $k; ?>.png" alt="">
+                                        <span><?php echo count($object['reactions'][$k]); ?></span>
+                                    </div>
+                                <?php endforeach; ?>
+
+                                <?php if (isset($_SESSION['user'])): ?>
+                                    <?php if (0 === count($object['reactions'])): ?>
+                                        <div class="reaction react-grey">
+                                            <img src="img/reaction/2.png" alt="">
+                                        </div>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </a>
 
                             <?php if (isset($_SESSION['user'])): ?>
-                                <?php if (0 === count($object['reactions'])): ?>
-                                    <div class="reaction react-grey">
-                                        <img src="img/reaction/3.png" alt="">
-                                    </div>
-                                <?php endif; ?>
-
                                 <div class="reaction-details" style="">
                                     <ul class="reaction-choices">
-                                        <li>
-                                            <a href="actions/addReaction.php?object=<?php echo $object['id']; ?>&value=3">
-                                                <img src="img/reaction/3.png" alt="">
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="actions/addReaction.php?object=<?php echo $object['id']; ?>&value=1">
-                                                <img src="img/reaction/1.png" alt="">
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="actions/addReaction.php?object=<?php echo $object['id']; ?>&value=4">
-                                                <img src="img/reaction/4.png" alt="">
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="actions/addReaction.php?object=<?php echo $object['id']; ?>&value=2">
-                                                <img src="img/reaction/2.png" alt="">
-                                            </a>
-                                        </li>
+                                        <?php for ($i = 1; $i < 6; $i++): ?>
+                                            <li>
+                                                <a data-add-reaction href="actions/addReaction.php?object=<?php echo $object['id']; ?>&value=<?php echo $i; ?>">
+                                                    <img src="img/reaction/<?php echo $i; ?>.png" alt="">
+                                                </a>
+                                            </li>
+                                        <?php endfor; ?>
                                     </ul>
                                 </div>
                             <?php endif; ?>

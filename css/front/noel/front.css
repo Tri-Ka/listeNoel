@@ -12692,23 +12692,36 @@ body.modal-open {
 }
 
 /* line 905, ../../../compass/sass/front/common/_common.scss */
-.reaction-list {
+.reaction-list,
+.reaction-list-container {
   display: inline-block;
+  vertical-align: 10%;
+  color: #000;
 }
-/* line 908, ../../../compass/sass/front/common/_common.scss */
-.reaction-list .reaction {
+/* line 911, ../../../compass/sass/front/common/_common.scss */
+.reaction-list:hover, .reaction-list:focus,
+.reaction-list-container:hover,
+.reaction-list-container:focus {
+  text-decoration: none;
+  color: #000;
+}
+/* line 917, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction,
+.reaction-list-container .reaction {
   display: inline-block;
   position: relative;
 }
-/* line 912, ../../../compass/sass/front/common/_common.scss */
-.reaction-list .reaction img {
+/* line 921, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction img,
+.reaction-list-container .reaction img {
   height: 30px;
   border-radius: 50%;
   border: 1px solid #fff;
   background: #fff;
 }
-/* line 919, ../../../compass/sass/front/common/_common.scss */
-.reaction-list .reaction span {
+/* line 928, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction span,
+.reaction-list-container .reaction span {
   position: absolute;
   background: #fff;
   border-radius: 50px;
@@ -12718,8 +12731,9 @@ body.modal-open {
   z-index: 10;
   right: -5px;
 }
-/* line 931, ../../../compass/sass/front/common/_common.scss */
-.reaction-list .reaction-details {
+/* line 940, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction-details,
+.reaction-list-container .reaction-details {
   position: absolute;
   z-index: 10;
   background: #fff;
@@ -12727,41 +12741,60 @@ body.modal-open {
   border-radius: 70px;
   box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.15);
   top: -55px;
-  margin-left: -50px;
-  width: 200px;
+  margin-left: -100px;
+  width: 245px;
   display: none;
   text-align: center;
 }
-/* line 944, ../../../compass/sass/front/common/_common.scss */
-.reaction-list .reaction-details .reaction-choices {
+/* line 953, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction-details .reaction-choices,
+.reaction-list-container .reaction-details .reaction-choices {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-/* line 949, ../../../compass/sass/front/common/_common.scss */
-.reaction-list .reaction-details .reaction-choices li {
+/* line 958, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction-details .reaction-choices li,
+.reaction-list-container .reaction-details .reaction-choices li {
   display: inline-block;
 }
-/* line 953, ../../../compass/sass/front/common/_common.scss */
-.reaction-list .reaction-details .reaction-choices li a img {
+/* line 961, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction-details .reaction-choices li a,
+.reaction-list-container .reaction-details .reaction-choices li a {
+  display: block;
+  transition: all .2s;
+}
+/* line 965, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction-details .reaction-choices li a img,
+.reaction-list-container .reaction-details .reaction-choices li a img {
   height: 40px;
 }
 @media screen and (min-width: 767px) {
-  /* line 953, ../../../compass/sass/front/common/_common.scss */
-  .reaction-list .reaction-details .reaction-choices li a img {
+  /* line 965, ../../../compass/sass/front/common/_common.scss */
+  .reaction-list .reaction-details .reaction-choices li a img,
+  .reaction-list-container .reaction-details .reaction-choices li a img {
     filter: grayscale(100%);
   }
 }
-/* line 962, ../../../compass/sass/front/common/_common.scss */
-.reaction-list .reaction-details .reaction-choices li a.selected img, .reaction-list .reaction-details .reaction-choices li a:hover img {
+/* line 972, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction-details .reaction-choices li a.selected, .reaction-list .reaction-details .reaction-choices li a:hover,
+.reaction-list-container .reaction-details .reaction-choices li a.selected,
+.reaction-list-container .reaction-details .reaction-choices li a:hover {
+  transform: scale(1.2);
+}
+/* line 975, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .reaction-details .reaction-choices li a.selected img, .reaction-list .reaction-details .reaction-choices li a:hover img,
+.reaction-list-container .reaction-details .reaction-choices li a.selected img,
+.reaction-list-container .reaction-details .reaction-choices li a:hover img {
   filter: none;
 }
-/* line 971, ../../../compass/sass/front/common/_common.scss */
-.reaction-list .react-grey {
+/* line 984, ../../../compass/sass/front/common/_common.scss */
+.reaction-list .react-grey,
+.reaction-list-container .react-grey {
   filter: grayscale(100%);
 }
 
-/* line 976, ../../../compass/sass/front/common/_common.scss */
+/* line 989, ../../../compass/sass/front/common/_common.scss */
 .react-avatar,
 .react-base {
   display: inline-block;
@@ -12772,7 +12805,7 @@ body.modal-open {
   border-radius: 50%;
 }
 
-/* line 986, ../../../compass/sass/front/common/_common.scss */
+/* line 999, ../../../compass/sass/front/common/_common.scss */
 .react-base {
   margin-right: 10px;
 }

@@ -126,9 +126,46 @@ $('html').on('click', function(){
     $('.reaction-details').hide();
 })
 
-$('[data-reaction-list]').on('mouseenter click', function(){
-    $(this).find('.reaction-details').show();
+$('[data-reaction-list]').each(function(){
+    bindReaction($(this));
 })
+
+$('[data-add-reaction]').each(function(){
+    bindReactionClick($(this));
+})
+
+function bindReaction(elem)
+{
+    elem.on('mouseenter click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $(this).parent().find('.reaction-details').show();
+    })
+}
+
+function bindReactionClick(elem) {
+    elem.on('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+    
+        var $url = $(this).attr('href');
+        var $parent = $(this).parents('.reaction-list-container');
+    
+        $.ajax({
+            type: "GET",
+            url: $url,
+            success: function(data) {
+                $parent.html(data);
+    
+                bindReaction($parent.find('[data-reaction-list]'));
+
+                $parent.find('[data-add-reaction]').each(function(){
+                    bindReactionClick($(this));
+                })
+            }
+        });
+    })
+}
 
 $('.grid-item').on('mouseleave', function(){
     $(this).find('.reaction-details').hide();
