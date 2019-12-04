@@ -2,7 +2,7 @@
     <div class="current-user">
         <div class="current-avatar" style="background-image:url('uploads/<?php echo $_SESSION['user']['id'].'/'.$_SESSION['user']['pictureFile']; ?>')"></div>
         <a href="index.php?user=<?php echo $_SESSION['user']['code']; ?>"><?php echo $_SESSION['user']['nom']; ?></a>
-        <a href="actions/disconnect.php"><i class="fa fa-power-off"></i></a>
+        <a href="actions/disconnect.php" onclick="signOut();"><i class="fa fa-power-off"></i></a>
     </div>
 
     <?php if (0 < count($_SESSION['user']['friends'])): ?>

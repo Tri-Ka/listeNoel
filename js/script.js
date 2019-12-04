@@ -115,10 +115,16 @@ $('body').click(function(e){
 $('[data-switch-gifted]').on('change', function(e){
     if ($(this).is(':checked')) {
         $('body').addClass('show-gifted');
+        createCookie('listeKdoShowGift', '1', '365');
     } else {
         $('body').removeClass('show-gifted');
+        createCookie('listeKdoShowGift', '0', '365');
     }
 });
+
+if (1 == accessCookie('listeKdoShowGift')) {
+    $('[data-switch-gifted]').click();
+}
 
 autosize($('textarea'));
 
@@ -170,3 +176,50 @@ function bindReactionClick(elem) {
 $('.grid-item').on('mouseleave', function(){
     $(this).find('.reaction-details').hide();
 })
+
+function createCookie(cookieName,cookieValue,daysToExpire) {
+    var date = new Date();
+    date.setTime(date.getTime()+(daysToExpire*24*60*60*1000));
+    document.cookie = cookieName + "=" + cookieValue + "; expires=" + date.toGMTString();
+}
+
+function accessCookie(cookieName) {
+    var name = cookieName + "=";
+    var allCookieArray = document.cookie.split(';');
+    for (var i=0; i<allCookieArray.length; i++) {
+        var temp = allCookieArray[i].trim();
+        
+        if (temp.indexOf(name)==0) {
+            return temp.substring(name.length,temp.length);
+        }
+    }
+    
+    return "";
+}
+
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    if (0 == accessCookie('listKdoGoogleAuth') || '' == accessCookie('listKdoGoogleAuth')) {
+        $.ajax({
+            type: "POST",
+            url: 'actions/connectWithGoogle.php',
+            data: {
+                'id' : profile.getId(),
+                'name' : profile.getName(),
+                'imageUrl': profile.getImageUrl(),
+                'email' : profile.getEmail()
+            },
+            success: function(data) {
+                createCookie('listKdoGoogleAuth', '1', '365');
+                document.location.reload();
+            }
+        });
+    }
+}
+
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        createCookie('listKdoGoogleAuth', '0', '365');
+    });
+}

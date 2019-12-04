@@ -1,9 +1,9 @@
 <?php
     error_reporting(E_ALL ^ E_DEPRECATED);
     // session_destroy();
-if (!isset($_SESSION)) {
-    session_start();
-}
+    if (!isset($_SESSION)) {
+        session_start();
+    }
 
     $_host = 'sql.free.fr';
     $_db = 'datcharrye';

@@ -86,7 +86,7 @@ function mysql_insert($table, $inserts)
 <?php if (isset($_SESSION['user'])): ?>
     <div data-reaction-detail class="reaction-details" style="">
         <ul class="reaction-choices">
-            <?php for ($i = 1; $i < 6; $i++): ?>
+            <?php for ($i = 1; $i < 7; $i++): ?>
                 <li>
                     <a data-add-reaction href="actions/addReaction.php?object=<?php echo $object['id']; ?>&value=<?php echo $i; ?>">
                         <img src="img/reaction/<?php echo $i; ?>.png" alt="">

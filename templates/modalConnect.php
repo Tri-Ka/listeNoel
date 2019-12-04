@@ -21,6 +21,10 @@
                             </div>
 
                             <p>* champs obligatoires</p>
+
+                            <hr />
+
+                            <div class="g-signin2" data-onsuccess="onSignIn"></div>
                         </div>
                     </div>
                 </div>

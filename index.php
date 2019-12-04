@@ -16,6 +16,7 @@
         <meta property="og:title" content="<?php echo $pageTitle; ?>" />
         <meta property="og:image" content="http://datcharrye.free.fr/listeKdo/img/<?php echo $currentTheme['label']; ?>/metaOg.jpg" />
         <meta property="fb:app_id" content="185139272403079" />
+        <meta name="google-signin-client_id" content="154877976324-hq9s2b5urubd0kimntpc6qqa0r55ru36.apps.googleusercontent.com">
         <link rel="stylesheet" type="text/css" media="screen" href="<?php echo auto_version('css/front/'.$currentTheme['label'].'/front.css'); ?>">
     </head>
 
@@ -54,5 +55,7 @@
           js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8&appId=185139272403079";
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
+
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
     </body>
 </html>

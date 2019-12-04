@@ -65,6 +65,7 @@ if ('' !== trim($nom) &&
 
     if ($uploadOk) {
         if (move_uploaded_file($_FILES['pictureFile']['tmp_name'], $target_file)) {
+            correctImageOrientation($target_file);
             $pictureFile = $_FILES['pictureFile']['name'];
         } else {
             $_SESSION['error'] = 'erreur lors de l\'upload';
@@ -94,4 +95,40 @@ function retrieveUser($username)
     $sql = "SELECT * FROM liste_user WHERE nom = '".$username."'";
 
     return mysql_fetch_assoc(mysql_query($sql));
+}
+
+function correctImageOrientation($filename)
+{
+    if (exif_imagetype($filename) === IMAGETYPE_JPEG) {
+        if (function_exists('exif_read_data')) {
+            $exif = exif_read_data($filename);
+            if ($exif && isset($exif['Orientation'])) {
+                $orientation = $exif['Orientation'];
+
+                if ($orientation != 1) {
+                    $img = imagecreatefromjpeg($filename);
+                    $deg = 0;
+
+                    switch ($orientation) {
+                        case 3:
+                            $deg = 180;
+                            break;
+                        case 6:
+                            $deg = 270;
+                            break;
+                        case 8:
+                            $deg = 90;
+                            break;
+                    }
+
+                    if ($deg) {
+                        $img = imagerotate($img, $deg, 0);
+                    }
+
+                    // then rewrite the rotated image back to the disk as $filename
+                    imagejpeg($img, $filename, 95);
+                } // if there is some rotation necessary
+            } // if have the exif orientation info
+        } // if function exists
+    }
 }

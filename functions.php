@@ -171,7 +171,7 @@
         
         $sql .= " (author_id != '".$user['id']."' AND author_id IN (".implode(', ', array_values($friendUserIds)).") AND type = 2) ";
         $sql .= $moreSql;
-        $sql .= " ORDER BY created_at DESC LIMIT 30";
+        $sql .= " ORDER BY created_at DESC LIMIT 100";
 
         $datas = mysql_query($sql);
 

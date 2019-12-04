@@ -945,8 +945,8 @@ body.modal-open {
         border-radius: 70px;
         box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.15);
         top: -55px;
-        margin-left: -100px;
-        width: 245px;
+        margin-left: -130px;
+        width: 290px;
         display: none;
         text-align: center;
 
@@ -998,4 +998,15 @@ body.modal-open {
 
 .react-base {
     margin-right: 10px;
+}
+
+.abcRioButton {
+    width: 100% !important;
+    margin: auto;
+    padding: 5px 15px;
+    height: auto !important;
+    width: fit-content !important;
+    transform: scale(1.2);
+    border-radius: 4px !important;
+    margin: 25px auto;
 }

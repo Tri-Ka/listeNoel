@@ -4,5 +4,6 @@
 
     unset($_COOKIE['listeKdoUserCode']);
     setcookie("listeKdoUserCode", '', 1 ,'/');
+    setcookie("listKdoGoogleAuth", '', 0 ,'/listeKdo');
 
     header('Location: ../index.php');
