@@ -11,7 +11,7 @@
         <meta charset="utf-8">
         <title><?php echo $pageTitle; ?></title>
         <link rel="icon" href="./favicon.ico" type="image/x-icon">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="description" content="<?php echo $pageTitle; ?>">
         <meta property="og:title" content="<?php echo $pageTitle; ?>" />
         <meta property="og:image" content="http://datcharrye.free.fr/listeKdo/img/<?php echo $currentTheme['label']; ?>/metaOg.jpg" />

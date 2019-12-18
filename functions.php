@@ -216,18 +216,30 @@
         return $notifications;
     }
 
-    function retrieveUser($code)
+    function retrieveUser($code = null, $id = null)
     {
-        $sql = "SELECT * FROM liste_user WHERE code = '".$code."'";
+        $sql = null;
+        
+        if (null !== $code) {
+            $sql = "SELECT * FROM liste_user WHERE code = '".$code."'";
+        }
 
-        return mysql_fetch_assoc(mysql_query($sql));
+        if (null !== $id) {
+            $sql = "SELECT * FROM liste_user WHERE id = '".$id."'";
+        }
+
+        if ($sql) {
+            return mysql_fetch_assoc(mysql_query($sql));
+        }
+
+        return null;
     }
 
     function retrieveFriends($userId)
     {
         $sql = "SELECT * FROM liste_user WHERE liste_user.code IN (
             SELECT user_friend.friend_code FROM user_friend WHERE user_friend.user_id = '".$userId."'
-        )";
+        ) ORDER BY liste_user.nom ASC";
 
         $datas = mysql_query($sql);
 
@@ -331,4 +343,18 @@
         }
 
         return $diff;
+    }
+
+
+    function retrieveAvatarUrl($userId = null, $userCode = null)
+    {
+        $user = retrieveUser($userCode, $userId);
+
+        if (null !== $user['pictureFileUrl'] && null == $user['pictureFile']) {
+            $pictureUrl = $user['pictureFileUrl'];
+        } else {
+            $pictureUrl = 'uploads/'.$user['id'].'/'.$user['pictureFile'];
+        }
+
+        return "background-image:url(".$pictureUrl.")";
     }

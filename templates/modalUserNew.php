@@ -16,8 +16,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="description">Photo *</label>
-                                <input type="file" class="form-control"  name="pictureFile" placeholder="fichier" required="required">
+                                <label for="description">Photo</label>
+                                <input type="file" class="form-control"  name="pictureFile" placeholder="fichier">
                             </div>
 
                             <div class="form-group">

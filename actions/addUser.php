@@ -1,10 +1,16 @@
 <?php
-    include '../config.php';
+include '../config.php';
 
-    $nom = $_POST['nom'];
-    $password = $_POST['password'];
-    $rePassword = $_POST['re-password'];
-    $code = md5($nom.$password);
+if (empty($_POST)) {
+    $_SESSION['error'] = 'L\'image ne doit pas dépasser 2Mo';
+    header('Location: ../index.php');
+    exit;
+}
+
+$nom = $_POST['nom'];
+$password = $_POST['password'];
+$rePassword = $_POST['re-password'];
+$code = md5($nom.$password);
 
 if (retrieveUser($nom)) {
     $_SESSION['error'] = 'Ce nom existe déjà';
@@ -12,13 +18,15 @@ if (retrieveUser($nom)) {
     exit;
 }
 
+if ($_FILES['pictureFile']['size']) {
     $fileSize = $_FILES['pictureFile']['size'];
     $fileSize = round($fileSize / 1024 / 1024, 1);
 
-if (3 < $fileSize) {
-    $_SESSION['error'] = 'L\'image ne doit pas dépasser 3Mo';
-    header('Location: ../index.php');
-    exit;
+    if (2 < $fileSize) {
+        $_SESSION['error'] = 'L\'image ne doit pas dépasser 2Mo';
+        header('Location: ../index.php');
+        exit;
+    }
 }
 
 if ($password !== $rePassword) {
@@ -27,18 +35,21 @@ if ($password !== $rePassword) {
     exit;
 }
 
-if ('' !== trim($nom) &&
-        '' !== trim($password)
-    ) {
-    // Check if image file is a actual image or fake image
-    $check = getimagesize($_FILES['pictureFile']['tmp_name']);
+if ('' !== trim($nom) && '' !== trim($password)) {
+    $filename = '';
+    
+    if ($_FILES['pictureFile']['tmp_name']){
+        // Check if image file is a actual image or fake image
+        $check = getimagesize($_FILES['pictureFile']['tmp_name']);
 
-    if ($check !== false) {
-        $uploadOk = 1;
-    } else {
-        $_SESSION['error'] = 'Le fichier n\'est pas une image';
-        header('Location: ../index.php');
-        exit;
+        if ($check !== false) {
+            $uploadOk = 1;
+            $filename = $_FILES['pictureFile']['name'];
+        } else {
+            $_SESSION['error'] = 'Le fichier n\'est pas une image';
+            header('Location: ../index.php');
+            exit;
+        }
     }
 
     $result = mysql_insert('liste_user', array(
@@ -46,7 +57,7 @@ if ('' !== trim($nom) &&
         'code' => $code,
         'password' => trim(md5($password)),
         'theme' => 'noel',
-        'pictureFile' => $_FILES['pictureFile']['name'],
+        'pictureFile' => $filename,
     ));
 
     $user = retrieveUser($nom);
@@ -59,18 +70,20 @@ if ('' !== trim($nom) &&
         mkdir($target_dir, 0777);
     }
 
-    $target_file = $target_dir.basename($_FILES['pictureFile']['name']);
-    $uploadOk = 1;
-    $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+    if ('' !== $filename) {
+        $target_file = $target_dir.basename($_FILES['pictureFile']['name']);
+        $uploadOk = 1;
+        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
-    if ($uploadOk) {
-        if (move_uploaded_file($_FILES['pictureFile']['tmp_name'], $target_file)) {
-            correctImageOrientation($target_file);
-            $pictureFile = $_FILES['pictureFile']['name'];
-        } else {
-            $_SESSION['error'] = 'erreur lors de l\'upload';
-            header('Location: ../index.php');
-            exit;
+        if ($uploadOk) {
+            if (move_uploaded_file($_FILES['pictureFile']['tmp_name'], $target_file)) {
+               // correctImageOrientation($target_file);
+                $pictureFile = $_FILES['pictureFile']['name'];
+            } else {
+                $_SESSION['error'] = 'erreur lors de l\'upload';
+                header('Location: ../index.php');
+                exit;
+            }
         }
     }
 

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-xs-12 col-md-3 col-sm-6 col-sm-offset-3 col-md-offset-0">
             <?php if ($currentUser): ?>
-                <div class="avatar" width="150px" style="background-image: url('uploads/<?php echo $currentUser['id'].'/'.$currentUser['pictureFile']; ?>')">
+                <div class="avatar" width="150px" style="<?php echo retrieveAvatarUrl($currentUser['id']); ?>">
                     <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] !== $currentUser['id']): ?>
                         <?php if (!in_array($currentUser, $_SESSION['user']['friends'])): ?>
                             <a href="actions/addFriend.php?friendCode=<?php echo $currentUser['code']; ?>" class="btn-add-friend" data-toggle="tooltip" title="ajouter cet ami"><i class="fa fa-user-plus"></i></a>

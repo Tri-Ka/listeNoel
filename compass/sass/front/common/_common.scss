@@ -2,7 +2,7 @@
 @import '../vendor/font-awesome';
 
 *:focus {
-    outline: none;
+    outline: none !important;
 }
 
 a:hover,
@@ -760,11 +760,15 @@ input.apple-switch:checked:after {
     }
 
     .panel-object.gifted {
-        opacity: 0.5;
-        transition: opacity .3s;
+        opacity: 0.3;
+        transition: all .2s;
+        filter: grayscale(1);
+        box-shadow: none;
 
         &:hover {
             opacity: 1;
+            filter: grayscale(0);
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
         }
     }
 }
@@ -864,10 +868,10 @@ input.apple-switch:checked:after {
 
     .sub-icon {
         position: absolute;
-        bottom: 0;
+        bottom: -5px;
         right: -5px;
-        background: #E23030;
-        color: #fff;
+        background: #fff;
+        color: #000;
         font-size: 10px;
         border-radius: 15px;
         display: inline-block;

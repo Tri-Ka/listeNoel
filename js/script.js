@@ -165,8 +165,11 @@ function bindReactionClick(elem) {
     
                 bindReaction($parent.find('[data-reaction-list]'));
 
+                $parent.find('[data-toggle="tooltip"]').tooltip({ trigger: "hover" });
+
                 $parent.find('[data-add-reaction]').each(function(){
                     bindReactionClick($(this));
+                    $(this).tooltip({ trigger: "hover" });
                 })
             }
         });

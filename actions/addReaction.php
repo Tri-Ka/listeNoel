@@ -64,11 +64,20 @@ function mysql_insert($table, $inserts)
     return mysql_query($query);
 }
 
+function getReactionUsers($reactions) {
+    $users = '';
+    foreach ($reactions as $react) {
+        $users .= $react['user']['nom']. ', ';
+    }
+
+    return substr(trim($users), 0, -1);
+}
+
 ?>
 
 <a href="#" data-reaction-list class="reaction-list">
     <?php foreach($object['reactions'] as $k => $reaction): ?>
-        <div class="reaction">
+        <div class="reaction" data-toggle="tooltip" data-original-title="<?php echo getReactionUsers($object['reactions'][$k]); ?>" data-placement="bottom">
             <img src="img/reaction/<?php echo $k; ?>.png" alt="">
             <span><?php echo count($object['reactions'][$k]); ?></span>
         </div>
@@ -83,12 +92,23 @@ function mysql_insert($table, $inserts)
     <?php endif; ?>
 </a>
 
+<?php
+    $react = array(
+        1 => "j'adore",
+        2 => "j'aime",
+        3 => "HaHa!",
+        4 => "meh",
+        5 => "j'aime pas",
+        6 => "BEEAARRGH!!!"
+    );
+?>
+
 <?php if (isset($_SESSION['user'])): ?>
     <div data-reaction-detail class="reaction-details" style="">
         <ul class="reaction-choices">
             <?php for ($i = 1; $i < 7; $i++): ?>
                 <li>
-                    <a data-add-reaction href="actions/addReaction.php?object=<?php echo $object['id']; ?>&value=<?php echo $i; ?>">
+                    <a data-toggle="tooltip" data-original-title="<?php echo $react[$i]; ?>" data-add-reaction href="actions/addReaction.php?object=<?php echo $object['id']; ?>&value=<?php echo $i; ?>">
                         <img src="img/reaction/<?php echo $i; ?>.png" alt="">
                     </a>
                 </li>

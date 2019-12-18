@@ -18,25 +18,7 @@ if (null != $id) {
             'theme' => 'noel',
             'googleId' => $id,
             'pictureFileUrl' => $imageUrl,
-            'pictureFile' => 'googleImage.jpg'
         ));
-
-        $user = retrieveUser($id);
-
-        $imageUrl = $user['pictureFileUrl'];
-        $target_dir = '../uploads/'.$user['id'];
-            
-        if (!file_exists($target_dir)) {
-            mkdir($target_dir, 0777);
-        }
-
-        $ch = curl_init($imageUrl);
-        $fp = fopen($target_dir.'/googleImage.jpg', 'wb');
-        curl_setopt($ch, CURLOPT_FILE, $fp);
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_exec($ch);
-        curl_close($ch);
-        fclose($fp);
     }
     
     $_SESSION['user'] = $user;
